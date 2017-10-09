@@ -20,6 +20,17 @@ namespace Ninja.ViewModel
             }
         }
 
+        private string _loadBarText;
+        public string LoadBarText
+        {
+            get { return _loadBarText; }
+            set
+            {
+                _loadBarText = value;
+                base.RaisePropertyChanged();
+            }
+        }
+
         private Timer timer;
 
         public LoadScreenViewModel()
@@ -31,16 +42,69 @@ namespace Ninja.ViewModel
 
             timer.Elapsed += OnTimedEvent;
 
-            timer.Enabled = true;
+            timer.Start();
 
         }
 
         private void OnTimedEvent(Object source, System.Timers.ElapsedEventArgs e)
         {
             if (Progress < 100)
+            {
                 Progress += 2;
+                LoadBarText = RandomLoadText();
+            }
             else
-                timer.Enabled = false;
+                timer.Stop();
+        }
+
+        private string RandomLoadText()
+        {
+            string txt = "";
+
+            if (Progress < 10)
+                txt = "Loading textures...";
+            else if (Progress > 10 && Progress <= 20)
+            {
+                txt = "Loading chestplates...";
+            }
+            else if (Progress > 20 && Progress <= 30)
+            {
+                txt = "Loading helmets...";
+            }
+            else if (Progress > 30 && Progress <= 40)
+            {
+                txt = "Loading shoulder armour...";
+            }
+            else if (Progress > 40 && Progress <= 50)
+            {
+                txt = "Loading boots...";
+            }
+            else if (Progress > 50 && Progress <= 60)
+            {
+                txt = "Loading pants...";
+            }
+            else if (Progress > 60 && Progress <= 70)
+            {
+                txt = "Loading belts...";
+            }
+            else if (Progress > 70 && Progress <= 80)
+            {
+                txt = "Loading shop...";
+            }
+            else if (Progress > 80 && Progress <= 90)
+            {
+                txt = "Loading ninjas...";
+            }
+            else if (Progress > 90 && Progress < 100)
+            {
+                txt = "Loading inventories...";
+            }
+            else
+            {
+                txt = "Loading textures...";
+            }
+
+            return txt;
         }
 
     }

@@ -5,9 +5,10 @@
     StartupUri="View/LoadScreen.xaml" 
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008" d1p1:Ignorable="d" xmlns:d1p1="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModel="clr-namespace:Ninja.ViewModel">
-  <Application.Resources>
+    <Application.Resources>
       <!--Global View Model Locator-->
         <viewModel:ViewModelLocator x:Key="Locator"
                            d:IsDataSource="True" />
+
     </Application.Resources>
 </Application>
