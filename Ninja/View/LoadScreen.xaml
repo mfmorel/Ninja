@@ -22,10 +22,12 @@
             Margin="156,123,0,0" 
             VerticalAlignment="Top" 
             Width="176" 
-            Background="Black" Foreground="Red" BorderBrush="{x:Null}"/>
+            Background="Black" Foreground="Red"/>
 
         <TextBlock Text="{Binding LoadBarText}" 
                    HorizontalAlignment="Center" 
-                   VerticalAlignment="Center" />
+                   VerticalAlignment="Center" 
+                   Margin="194,128,202,317" 
+                   Height="25" Foreground="White" />
     </Grid>
 </Window>
