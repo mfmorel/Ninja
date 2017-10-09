@@ -5,6 +5,7 @@ using System.Timers;
 using System.Threading;
 using GalaSoft.MvvmLight;
 using Timer = System.Timers.Timer;
+using System.Media;
 
 namespace Ninja.ViewModel
 {
@@ -35,6 +36,10 @@ namespace Ninja.ViewModel
 
         public LoadScreenViewModel()
         {
+            SoundPlayer player = new SoundPlayer();
+            player.SoundLocation = AppDomain.CurrentDomain.BaseDirectory + "\\Resources\\theme_song.wav";
+            player.Play();
+
             Progress = 0;
             
             timer = new System.Timers.Timer();

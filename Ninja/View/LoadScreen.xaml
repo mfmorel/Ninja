@@ -8,12 +8,14 @@
         x:Class="Ninja.View.LoadScreen"
         mc:Ignorable="d"
         Title="LoadScreen" 
-        Height="45" 
-        Width="300"
-        Background="Black"
+        Height="600" 
+        Width="800"
         DataContext="{Binding LoadScreen, Source={StaticResource Locator}}" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
-
+    <Window.Background>
+        <ImageBrush ImageSource="../Resources/loadscreen_background.png"></ImageBrush>
+    </Window.Background>
     <Grid>
+
         <ProgressBar 
             
             Value="{Binding Progress}" 
@@ -27,5 +29,6 @@
         <TextBlock Text="{Binding LoadBarText}"
                    HorizontalAlignment="Center"
                    Height="24" Foreground="White"/>
+        <Image x:Name="image" HorizontalAlignment="Center" Height="108" Width="342" Source="/Ninja;component/Resources/rs_logo.png" Margin="213,47,213,380"/>
     </Grid>
 </Window>
