@@ -11,6 +11,7 @@ namespace Ninja.ViewModel
 {
     public class LoadScreenViewModel : ViewModelBase
     {
+        private SoundPlayer _player;
         private int _progress;
         public int Progress
         {
@@ -36,9 +37,9 @@ namespace Ninja.ViewModel
 
         public LoadScreenViewModel()
         {
-            SoundPlayer player = new SoundPlayer();
-            player.SoundLocation = AppDomain.CurrentDomain.BaseDirectory + "\\Resources\\theme_song.wav";
-            player.Play();
+            _player = new SoundPlayer();
+            _player.SoundLocation = AppDomain.CurrentDomain.BaseDirectory + "\\Resources\\theme_song.wav";
+            _player.Play();
 
             Progress = 0;
             
@@ -59,7 +60,11 @@ namespace Ninja.ViewModel
                 LoadBarText = RandomLoadText();
             }
             else
+            {
+                _player.Stop();
+                _player.Dispose();
                 timer.Stop();
+            }
         }
 
         private string RandomLoadText()
