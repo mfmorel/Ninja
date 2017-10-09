@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="0b1f2885-2baa-459b-972d-8a2f4f2ab3ff" ChangeDateTime="10/09/2017 17:55:59">
+    <Property Name="ElementName" Value="[dbo].[Ninja].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Ninja]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ID" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="39ce7a31-6be4-410c-b0dc-e83e42b9b450" ChangeDateTime="10/09/2017 17:57:44">
+    <Property Name="ElementName" Value="[dbo].[Armour].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Armour]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ID" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="efceffd1-1f57-49a4-9782-8aac096df34e" ChangeDateTime="10/09/2017 17:58:45">
+    <Property Name="ElementName" Value="[dbo].[Ninja_equipment].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Ninja_equipment]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="NinjaID" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="a401a476-80e6-4961-887e-05a7047c60ac" ChangeDateTime="10/09/2017 17:59:50">
+    <Property Name="ElementName" Value="[dbo].[FK_Ninja_equipment_ToTable]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[Ninja_equipment]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_Ninja_equipment_]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="27d0be3a-dd26-4109-b7c3-411d56a8a71d" ChangeDateTime="10/09/2017 18:01:14">
+    <Property Name="ElementName" Value="[dbo].[Ninja_equipment].[Armour_ID]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Ninja_equipment]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ArmourID" />
+  </Operation>
+</Operations>

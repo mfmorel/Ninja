@@ -1,0 +1,4 @@
+﻿CREATE TABLE [dbo].[Ninja]
+(
+	[Id] INT NOT NULL PRIMARY KEY
+)
