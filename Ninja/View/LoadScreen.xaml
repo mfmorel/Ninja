@@ -8,26 +8,24 @@
         x:Class="Ninja.View.LoadScreen"
         mc:Ignorable="d"
         Title="LoadScreen" 
-        Height="500" 
-        Width="500"
-        DataContext="{Binding LoadScreen, Source={StaticResource Locator}}">
+        Height="45" 
+        Width="300"
+        Background="Black"
+        DataContext="{Binding LoadScreen, Source={StaticResource Locator}}" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
 
     <Grid>
         <ProgressBar 
             
             Value="{Binding Progress}" 
             x:Name="LoadBar" 
-            HorizontalAlignment="Left" 
-            Height="25" 
-            Margin="156,123,0,0" 
-            VerticalAlignment="Top" 
-            Width="176" 
+            HorizontalAlignment="Center" 
+            Height="40" 
+            VerticalAlignment="Center" 
+            Width="292" 
             Background="Black" Foreground="Red"/>
 
-        <TextBlock Text="{Binding LoadBarText}" 
-                   HorizontalAlignment="Center" 
-                   VerticalAlignment="Center" 
-                   Margin="194,128,202,317" 
-                   Height="25" Foreground="White" />
+        <TextBlock Text="{Binding LoadBarText}"
+                   HorizontalAlignment="Center"
+                   Height="24" Foreground="White"/>
     </Grid>
 </Window>
