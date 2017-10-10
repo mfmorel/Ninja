@@ -55,6 +55,14 @@
       <HintPath>..\packages\MvvmLightLibs.5.3.0.0\lib\net45\GalaSoft.MvvmLight.Platform.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="MaterialDesignColors, Version=1.1.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignColors.1.1.3\lib\net45\MaterialDesignColors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=2.3.1.953, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.2.3.1.953\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
       <Private>True</Private>
@@ -89,6 +97,9 @@
     <Compile Include="ViewModel\LoadScreenViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
+    <Compile Include="View\InventoryView.xaml.cs">
+      <DependentUpon>InventoryView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\LoadScreen.xaml.cs">
       <DependentUpon>LoadScreen.xaml</DependentUpon>
     </Compile>
@@ -96,7 +107,26 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="View\NinjasListView.xaml.cs">
+      <DependentUpon>NinjasListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Router.cs" />
+    <Compile Include="View\ShopView.xaml.cs">
+      <DependentUpon>ShopView.xaml</DependentUpon>
+    </Compile>
+    <Page Include="View\InventoryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\LoadScreen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NinjasListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ShopView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -142,9 +172,40 @@
     <Resource Include="Resources\rs_logo.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\Images\bar.png" />
+    <Resource Include="Resources\Images\Barrows\Dharok\Dharok%27s_helm_detail.png" />
+    <Resource Include="Resources\Images\Barrows\Dharok\Dharok%27s_platebody_detail.png" />
+    <Resource Include="Resources\Images\Barrows\Dharok\Dharok%27s_platelegs_detail.png" />
+    <Resource Include="Resources\Images\Barrows\Guthan the Infested\Guthan%27s_chainskirt_detail.png" />
+    <Resource Include="Resources\Images\Barrows\Guthan the Infested\Guthan%27s_helm_detail.png" />
+    <Resource Include="Resources\Images\Barrows\Guthan the Infested\Guthan%27s_platebody_detail.png" />
+    <Resource Include="Resources\Images\Barrows\Torag the Corrupted\Torag%27s_helm_detail.png" />
+    <Resource Include="Resources\Images\Barrows\Torag the Corrupted\Torag%27s_platebody_detail.png" />
+    <Resource Include="Resources\Images\Barrows\Torag the Corrupted\Torag%27s_platelegs_detail.png" />
+    <Resource Include="Resources\Images\Barrows\Verac the Defiled\Verac%27s_brassard_detail.png" />
+    <Resource Include="Resources\Images\Barrows\Verac the Defiled\Verac%27s_helm_detail.png" />
+    <Resource Include="Resources\Images\Barrows\Verac the Defiled\Verac%27s_plateskirt_detail.png" />
+    <Resource Include="Resources\Images\Belts\Belt_of_the_Deceiver_inventory_icon.png" />
+    <Resource Include="Resources\Images\Belts\Crystal_Belt_inventory_icon.png" />
+    <Resource Include="Resources\Images\Belts\test.png" />
+    <Resource Include="Resources\Images\Belts\The_Retch_inventory_icon.png" />
+    <Resource Include="Resources\Images\Boots\Chicken_feet_detail.png" />
+    <Resource Include="Resources\Images\Boots\Fancy_boots_detail.png" />
+    <Resource Include="Resources\Images\Boots\Silly_jester_boots_detail.png" />
+    <Resource Include="Resources\Images\Menu\belt.png" />
+    <Resource Include="Resources\Images\Menu\boots.png" />
+    <Resource Include="Resources\Images\Menu\chest.png" />
+    <Resource Include="Resources\Images\Menu\helm.png" />
+    <Resource Include="Resources\Images\Menu\leg.png" />
+    <Resource Include="Resources\Images\Menu\shoulder.png" />
+    <Resource Include="Resources\Images\Shoulders\Ailettes.png" />
+    <Resource Include="Resources\Images\Shoulders\Mountain_of_the_Light.png" />
+    <Resource Include="Resources\Images\Shoulders\Vyr%27s_Proud_Pauldrons.png" />
+    <Resource Include="Resources\background.png" />
     <Content Include="Resources\theme_song.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Resources\button_bg.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

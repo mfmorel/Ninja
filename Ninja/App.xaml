@@ -9,6 +9,5 @@
       <!--Global View Model Locator-->
         <viewModel:ViewModelLocator x:Key="Locator"
                            d:IsDataSource="True" />
-
     </Application.Resources>
 </Application>

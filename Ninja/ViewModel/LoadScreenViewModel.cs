@@ -6,12 +6,18 @@ using System.Threading;
 using GalaSoft.MvvmLight;
 using Timer = System.Timers.Timer;
 using System.Media;
+using System.Windows.Input;
+using GalaSoft.MvvmLight.Command;
+using Ninja.View;
+using System.Windows;
 
 namespace Ninja.ViewModel
 {
-    public class LoadScreenViewModel : ViewModelBase
+    public class LoadScreenViewModel : Router
     {
+        public ICommand PlayCommand { get; set; }
         private SoundPlayer _player;
+
         private int _progress;
         public int Progress
         {
@@ -33,10 +39,37 @@ namespace Ninja.ViewModel
             }
         }
 
+        private Visibility _butVisibility;
+        public Visibility ButVisibility
+        {
+            get { return _butVisibility; }
+            set
+            {
+                _butVisibility = value;
+                base.RaisePropertyChanged();
+            }
+        }
+
+        private Visibility _progVisibility;
+        public Visibility ProgVisibility
+        {
+            get { return _progVisibility; }
+            set
+            {
+                _progVisibility = value;
+                base.RaisePropertyChanged();
+            }
+        }
+
         private Timer timer;
 
         public LoadScreenViewModel()
         {
+            ProgVisibility = Visibility.Visible;
+            ButVisibility = Visibility.Hidden;
+
+            PlayCommand = new RelayCommand(this.Play);
+
             _player = new SoundPlayer();
             _player.SoundLocation = AppDomain.CurrentDomain.BaseDirectory + "\\Resources\\theme_song.wav";
             _player.Play();
@@ -49,7 +82,6 @@ namespace Ninja.ViewModel
             timer.Elapsed += OnTimedEvent;
 
             timer.Start();
-
         }
 
         private void OnTimedEvent(Object source, System.Timers.ElapsedEventArgs e)
@@ -60,11 +92,32 @@ namespace Ninja.ViewModel
                 LoadBarText = RandomLoadText();
             }
             else
-            {
-                _player.Stop();
-                _player.Dispose();
-                timer.Stop();
-            }
+                Stop();
+        }
+
+        private void Stop()
+        {
+            timer.Stop();
+
+            ProgVisibility = Visibility.Hidden;
+            ButVisibility = Visibility.Visible;
+        }
+
+        private void Play()
+        {
+            _player.Stop();
+            _player.Dispose();
+
+            ShopView shop = this.GetShopView;
+            shop.Show();
+
+            InventoryView inventory = this.GetInventoryView;
+            inventory.Show();
+
+            NinjasListView ninjas = this.GetNinjasListView;
+            ninjas.Show();
+
+            Application.Current.MainWindow.Close();
         }
 
         private string RandomLoadText()

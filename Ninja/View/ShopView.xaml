@@ -1,0 +1,67 @@
+﻿<Window x:Class="Ninja.View.ShopView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Ninja.View"
+        mc:Ignorable="d"
+        Title="Shop" Height="300" Width="400" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Window.Background>
+        <ImageBrush ImageSource="../Resources/background.png"></ImageBrush>
+    </Window.Background>
+    <Grid>
+        <Grid VerticalAlignment="Top" Margin="0,10,0,0">
+            <Grid.Resources>
+                <ImageBrush x:Key="HeadButton" ImageSource="../Resources/Images/menu/helm.png" Stretch="Uniform"/>
+                <ImageBrush x:Key="ShoulderButton" ImageSource="../Resources/Images/menu/shoulder.png" Stretch="UniformToFill"/>
+                <ImageBrush x:Key="ChestButton" ImageSource="../Resources/Images/menu/chest.png" Stretch="Uniform"/>
+                <ImageBrush x:Key="LegsButton" ImageSource="../Resources/Images/menu/leg.png" Stretch="Uniform"/>
+                <ImageBrush x:Key="BootsButton" ImageSource="../Resources/Images/menu/boots.png" Stretch="Uniform"/>
+                <ImageBrush x:Key="BeltButton" ImageSource="../Resources/Images/menu/belt.png" Stretch="Uniform"/>
+                <ImageBrush x:Key="Bar" ImageSource="../Resources/Images/bar.png" Stretch="fill" />
+            </Grid.Resources>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Button BorderThickness="0" Grid.Row="0" Grid.Column="0" Background="{StaticResource HeadButton}" x:Name="HeadButton" Content="" HorizontalAlignment="Center" VerticalAlignment="Top" Width="50" Height="50" Cursor="Hand" >
+                <Button.Effect>
+                    <DropShadowEffect/>
+                </Button.Effect>
+            </Button>
+            <Button BorderThickness="0" Grid.Row="0" Grid.Column="5" Background="{StaticResource ShoulderButton}" x:Name="ShoulderButton" Content="" HorizontalAlignment="Center" VerticalAlignment="Top" Width="50" Height="50" Cursor="Hand" >
+                <Button.Effect>
+                    <DropShadowEffect/>
+                </Button.Effect>
+            </Button>
+            <Button BorderThickness="0" Grid.Row="0" Grid.Column="2" Background="{StaticResource ChestButton}" x:Name="ChestButton" Content="" HorizontalAlignment="Center" VerticalAlignment="Top" Width="50" Height="50" Cursor="Hand" >
+                <Button.Effect>
+                    <DropShadowEffect/>
+                </Button.Effect>
+            </Button>
+            <Button BorderThickness="0" Grid.Row="0" Grid.Column="3" Background="{StaticResource LegsButton}" x:Name="LegsButton" Content="" HorizontalAlignment="Center" VerticalAlignment="Top" Width="50" Height="50" Cursor="Hand" >
+                <Button.Effect>
+                    <DropShadowEffect/>
+                </Button.Effect>
+            </Button>
+            <Button BorderThickness="0" Grid.Row="0" Grid.Column="1" Background="{StaticResource BootsButton}" x:Name="BootsButton" Content="" HorizontalAlignment="Center" VerticalAlignment="Top" Width="50" Height="50" Cursor="Hand" >
+                <Button.Effect>
+                    <DropShadowEffect/>
+                </Button.Effect>
+            </Button>
+            <Button BorderThickness="0" Grid.Row="0" Grid.Column="4" Background="{StaticResource BeltButton}" x:Name="BeltButton" Content="" HorizontalAlignment="Center" VerticalAlignment="Top" Width="50" Height="50" Cursor="Hand" >
+                <Button.Effect>
+                    <DropShadowEffect/>
+                </Button.Effect>
+            </Button>
+            <Rectangle Grid.ColumnSpan="6" Fill="{StaticResource Bar}" HorizontalAlignment="Left" Height="4" Margin="0,55,0,-8" VerticalAlignment="Top" Width="400"/>
+        </Grid>
+    </Grid>
+</Window>

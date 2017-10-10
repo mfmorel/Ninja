@@ -5,6 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ninja.View"
         xmlns:ninja="clr-namespace:Ninja"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Platform"
         x:Class="Ninja.View.LoadScreen"
         mc:Ignorable="d"
         Title="LoadScreen" 
@@ -15,9 +17,11 @@
         <ImageBrush ImageSource="../Resources/loadscreen_background.png"></ImageBrush>
     </Window.Background>
     <Grid>
-
+        <Grid.Resources>
+            <ImageBrush x:Key="PlayButton" ImageSource="../Resources/button_bg.png" Stretch="Fill"/>
+        </Grid.Resources>
         <ProgressBar 
-            
+            Visibility="{Binding ProgVisibility}"
             Value="{Binding Progress}" 
             x:Name="LoadBar" 
             HorizontalAlignment="Center" 
@@ -26,9 +30,13 @@
             Width="292" 
             Background="Black" Foreground="Red"/>
 
-        <TextBlock Text="{Binding LoadBarText}"
-                   HorizontalAlignment="Center"
-                   Height="24" Foreground="White"/>
+        <TextBlock 
+            Visibility="{Binding ProgVisibility}"
+            Text="{Binding LoadBarText}"
+            HorizontalAlignment="Center"
+            Height="24" Foreground="White"/>
         <Image x:Name="image" HorizontalAlignment="Center" Height="108" Width="342" Source="/Ninja;component/Resources/rs_logo.png" Margin="213,47,213,380"/>
+        <Button Command="{Binding PlayCommand}" BorderThickness="3" Foreground="White" Background="{DynamicResource PlayButton}" Visibility="{Binding ButVisibility}" x:Name="button" Content="Play" HorizontalAlignment="Center" VerticalAlignment="Center" Width="292" Height="38"
+                FontSize="20" Margin="254,281" BorderBrush="Black"/>
     </Grid>
 </Window>
