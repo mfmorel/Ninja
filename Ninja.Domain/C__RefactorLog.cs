@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Domain
+namespace Ninja.Domain
 {
     using System;
     using System.Collections.Generic;

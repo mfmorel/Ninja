@@ -94,12 +94,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="View\Soundon.xaml.cs">
-      <DependentUpon>Soundon.xaml</DependentUpon>
-    </Compile>
     <Compile Include="ViewModel\LoadScreenViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\NinjaListViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
+    <Compile Include="View\AddNinjaView.xaml.cs">
+      <DependentUpon>AddNinjaView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\InventoryView.xaml.cs">
       <DependentUpon>InventoryView.xaml</DependentUpon>
     </Compile>
@@ -117,7 +118,10 @@
     <Compile Include="View\ShopView.xaml.cs">
       <DependentUpon>ShopView.xaml</DependentUpon>
     </Compile>
-    <Page Include="View\Soundon.xaml">
+    <Compile Include="View\UserControl\NinjaGrid.xaml.cs">
+      <DependentUpon>NinjaGrid.xaml</DependentUpon>
+    </Compile>
+    <Page Include="View\AddNinjaView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -134,6 +138,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ShopView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControl\NinjaGrid.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -157,6 +165,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Ninja.Domain.Ninja.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -209,12 +218,16 @@
     <Resource Include="Resources\Images\Shoulders\Mountain_of_the_Light.png" />
     <Resource Include="Resources\Images\Shoulders\Vyr%27s_Proud_Pauldrons.png" />
     <Resource Include="Resources\background.png" />
-    <Resource Include="Resources\Runescape_music_logo_off.png" />
-    <Resource Include="Resources\Runescape_music_logo_on.png" />
     <Content Include="Resources\theme_song.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Resource Include="Resources\button_bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Ninja.Domain\Ninja.Domain.csproj">
+      <Project>{9988ca57-4e8b-41fd-8bea-a0e285fd60c8}</Project>
+      <Name>Ninja.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
