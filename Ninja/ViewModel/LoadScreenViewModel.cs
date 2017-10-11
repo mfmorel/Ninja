@@ -16,7 +16,7 @@ namespace Ninja.ViewModel
     public class LoadScreenViewModel : Router
     {
         public ICommand PlayCommand { get; set; }
-        private SoundPlayer _player;
+        private readonly SoundPlayer _player;
 
         private int _progress;
         public int Progress
@@ -61,7 +61,7 @@ namespace Ninja.ViewModel
             }
         }
 
-        private Timer timer;
+        private readonly Timer _timer;
 
         public LoadScreenViewModel()
         {
@@ -70,21 +70,22 @@ namespace Ninja.ViewModel
 
             PlayCommand = new RelayCommand(this.Play);
 
-            _player = new SoundPlayer();
-            _player.SoundLocation = AppDomain.CurrentDomain.BaseDirectory + "\\Resources\\theme_song.wav";
-            _player.Play();
-
             Progress = 0;
-            
-            timer = new System.Timers.Timer();
-            timer.Interval = 100;
 
-            timer.Elapsed += OnTimedEvent;
+            _timer = new System.Timers.Timer {Interval = 100};
 
-            timer.Start();
+            _timer.Elapsed += OnTimedEvent;
+
+            _timer.Start();
+
+            _player = new SoundPlayer
+            {
+                SoundLocation = AppDomain.CurrentDomain.BaseDirectory + "\\Resources\\theme_song.wav"
+            };
+            _player.Play();
         }
 
-        private void OnTimedEvent(Object source, System.Timers.ElapsedEventArgs e)
+        private void OnTimedEvent(object source, System.Timers.ElapsedEventArgs e)
         {
             if (Progress < 100)
             {
@@ -97,7 +98,7 @@ namespace Ninja.ViewModel
 
         private void Stop()
         {
-            timer.Stop();
+            _timer.Stop();
 
             ProgVisibility = Visibility.Hidden;
             ButVisibility = Visibility.Visible;
@@ -108,13 +109,7 @@ namespace Ninja.ViewModel
             _player.Stop();
             _player.Dispose();
 
-            ShopView shop = this.GetShopView;
-            shop.Show();
-
-            InventoryView inventory = this.GetInventoryView;
-            inventory.Show();
-
-            NinjasListView ninjas = this.GetNinjasListView;
+            var ninjas = this.GetNinjasListView;
             ninjas.Show();
 
             Application.Current.MainWindow.Close();
@@ -122,7 +117,7 @@ namespace Ninja.ViewModel
 
         private string RandomLoadText()
         {
-            string txt = "";
+            var txt = "";
 
             if (Progress < 10)
                 txt = "Loading textures...";

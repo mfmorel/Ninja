@@ -44,6 +44,7 @@ namespace Ninja.ViewModel
 
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<LoadScreenViewModel>();
+            SimpleIoc.Default.Register<NinjaListViewModel>();
         }
 
         public MainViewModel Main
@@ -61,7 +62,15 @@ namespace Ninja.ViewModel
                 return ServiceLocator.Current.GetInstance<LoadScreenViewModel>();
             }
         }
-        
+
+        public object Ninjas
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<NinjaListViewModel>();
+            }
+        }
+
         public static void Cleanup()
         {
             // TODO Clear the ViewModels

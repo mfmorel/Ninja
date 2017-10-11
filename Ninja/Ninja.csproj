@@ -96,7 +96,11 @@
     </ApplicationDefinition>
     <Compile Include="ViewModel\LoadScreenViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\NinjaListViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
+    <Compile Include="View\AddNinjaView.xaml.cs">
+      <DependentUpon>AddNinjaView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\InventoryView.xaml.cs">
       <DependentUpon>InventoryView.xaml</DependentUpon>
     </Compile>
@@ -114,6 +118,13 @@
     <Compile Include="View\ShopView.xaml.cs">
       <DependentUpon>ShopView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\UserControl\NinjaGrid.xaml.cs">
+      <DependentUpon>NinjaGrid.xaml</DependentUpon>
+    </Compile>
+    <Page Include="View\AddNinjaView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\InventoryView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -127,6 +138,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ShopView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControl\NinjaGrid.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -150,6 +165,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Ninja.Domain.Ninja.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -206,6 +222,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Resource Include="Resources\button_bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Ninja.Domain\Ninja.Domain.csproj">
+      <Project>{9988ca57-4e8b-41fd-8bea-a0e285fd60c8}</Project>
+      <Name>Ninja.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
