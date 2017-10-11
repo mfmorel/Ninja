@@ -10,6 +10,7 @@ using System.Windows.Input;
 using GalaSoft.MvvmLight.Command;
 using Ninja.View;
 using System.Windows;
+using System.Windows.Controls.Primitives;
 
 namespace Ninja.ViewModel
 {
@@ -17,6 +18,19 @@ namespace Ninja.ViewModel
     {
         public ICommand PlayCommand { get; set; }
         private SoundPlayer _player;
+        private bool _playerIsPlaying;
+
+        public string SoundToggleImageLocation
+        {
+            get { return _soundToggleImageLocation; }
+            set
+            {
+                _soundToggleImageLocation = value;
+                base.RaisePropertyChanged();
+            }
+        }
+
+        private string _soundToggleImageLocation;
 
         private int _progress;
         public int Progress
@@ -61,6 +75,8 @@ namespace Ninja.ViewModel
             }
         }
 
+        public ICommand ToggleSoundCommand { get; set; }
+
         private Timer timer;
 
         public LoadScreenViewModel()
@@ -69,10 +85,14 @@ namespace Ninja.ViewModel
             ButVisibility = Visibility.Hidden;
 
             PlayCommand = new RelayCommand(this.Play);
+            ToggleSoundCommand = new RelayCommand(ToggleSound);
+
+            SoundToggleImageLocation = "/Resources/Runescape_music_logo_on.png";
 
             _player = new SoundPlayer();
             _player.SoundLocation = AppDomain.CurrentDomain.BaseDirectory + "\\Resources\\theme_song.wav";
             _player.Play();
+            _playerIsPlaying = true;
 
             Progress = 0;
             
@@ -107,6 +127,7 @@ namespace Ninja.ViewModel
         {
             _player.Stop();
             _player.Dispose();
+            _playerIsPlaying = false;
 
             ShopView shop = this.GetShopView;
             shop.Show();
@@ -168,6 +189,21 @@ namespace Ninja.ViewModel
             }
 
             return txt;
+        }
+
+        private void ToggleSound()
+        {
+            if (_playerIsPlaying)
+            {
+                SoundToggleImageLocation = "/Resources/Runescape_music_logo_off.png";
+                _player.Stop();
+            }
+            else
+            {
+                SoundToggleImageLocation = "/Resources/Runescape_music_logo_on.png";
+                _player.Play();
+            }
+            _playerIsPlaying = !_playerIsPlaying;
         }
 
     }

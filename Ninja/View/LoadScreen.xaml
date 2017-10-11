@@ -38,5 +38,12 @@
         <Image x:Name="image" HorizontalAlignment="Center" Height="108" Width="342" Source="/Ninja;component/Resources/rs_logo.png" Margin="213,47,213,380"/>
         <Button Command="{Binding PlayCommand}" BorderThickness="3" Foreground="White" Background="{DynamicResource PlayButton}" Visibility="{Binding ButVisibility}" x:Name="button" Content="Play" HorizontalAlignment="Center" VerticalAlignment="Center" Width="292" Height="38"
                 FontSize="20" Margin="254,281" BorderBrush="Black"/>
+        <Button x:Name="ToggleMusicButton" HorizontalAlignment="Right" Margin="0,550,20,0" VerticalAlignment="Top" Width="40" Command="{Binding ToggleSoundCommand}">
+            <StackPanel RenderTransformOrigin="0.174,-1.976">
+                <Image Source="{Binding SoundToggleImageLocation}" Height="35" Width="35"/>
+            </StackPanel>
+        </Button>
     </Grid>
 </Window>
+
+    

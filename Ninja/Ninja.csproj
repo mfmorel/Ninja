@@ -94,6 +94,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="View\Soundon.xaml.cs">
+      <DependentUpon>Soundon.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\LoadScreenViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
@@ -114,6 +117,10 @@
     <Compile Include="View\ShopView.xaml.cs">
       <DependentUpon>ShopView.xaml</DependentUpon>
     </Compile>
+    <Page Include="View\Soundon.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\InventoryView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -202,6 +209,8 @@
     <Resource Include="Resources\Images\Shoulders\Mountain_of_the_Light.png" />
     <Resource Include="Resources\Images\Shoulders\Vyr%27s_Proud_Pauldrons.png" />
     <Resource Include="Resources\background.png" />
+    <Resource Include="Resources\Runescape_music_logo_off.png" />
+    <Resource Include="Resources\Runescape_music_logo_on.png" />
     <Content Include="Resources\theme_song.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
