@@ -63,11 +63,19 @@ namespace Ninja.ViewModel
             }
         }
 
-        public object Ninjas
+        public NinjaListViewModel Ninjas
         {
             get
             {
                 return ServiceLocator.Current.GetInstance<NinjaListViewModel>();
+            }
+        }
+
+        public AddNinjaViewModel AddNinja
+        {
+            get
+            {
+                return new AddNinjaViewModel(Ninjas);
             }
         }
 

@@ -1,12 +1,23 @@
-﻿<Window x:Class="Ninja.View.AddNinjaView"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ninja.View"
+        xmlns:Domain="clr-namespace:Ninja.Domain;assembly=Ninja.Domain" x:Class="Ninja.View.AddNinjaView"
         mc:Ignorable="d"
-        Title="AddNinjaView" Height="300" Width="300">
+        Title="Ninja toevoegen" Height="130" Width="250"
+        DataContext="{Binding AddNinja, Source={StaticResource Locator}}" WindowStartupLocation="CenterScreen" SizeToContent="WidthAndHeight" ResizeMode="NoResize">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="187*"/>
+            <ColumnDefinition Width="105*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.ColumnSpan="2">
+            <Label HorizontalAlignment="Center" FontWeight="Bold" FontSize="20">Nieuwe ninja toevoegen</Label>
+            <Label>Naam:</Label>
+            <TextBox Text="{Binding Path=Ninja.Name, Mode=TWoWay}"></TextBox>
+            <Button Command="{Binding AddNinjaCommand}" CommandParameter="{Binding AddNinjaCommand}">Toevoegen</Button>
+        </StackPanel>
     </Grid>
 </Window>

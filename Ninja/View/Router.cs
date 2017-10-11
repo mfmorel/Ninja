@@ -48,5 +48,16 @@ namespace Ninja.View
                 return ServiceLocator.Current.GetInstance<NinjasListView>();
             }
         }
+
+        public AddNinjaView GetAddNinjaView
+        {
+            get
+            {
+                if (!SimpleIoc.Default.IsRegistered<AddNinjaView>())
+                    SimpleIoc.Default.Register<AddNinjaView>();
+
+                return ServiceLocator.Current.GetInstance<AddNinjaView>();
+            }
+        }
     }
 }

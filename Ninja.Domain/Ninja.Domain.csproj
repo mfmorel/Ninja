@@ -57,6 +57,7 @@
     <Compile Include="C__RefactorLog.cs">
       <DependentUpon>NinjaEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\Ninja.cs" />
     <Compile Include="Ninja.cs">
       <DependentUpon>NinjaEntities.tt</DependentUpon>
     </Compile>
