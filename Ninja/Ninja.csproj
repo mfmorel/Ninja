@@ -177,6 +177,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Model\" />
     <Folder Include="Properties\DataSources\" />
   </ItemGroup>
   <ItemGroup>
@@ -225,9 +226,9 @@
     <Resource Include="Resources\button_bg.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Ninja.Domain\Ninja.Domain.csproj">
-      <Project>{9988ca57-4e8b-41fd-8bea-a0e285fd60c8}</Project>
-      <Name>Ninja.Domain</Name>
+    <ProjectReference Include="..\Domain\Domain.csproj">
+      <Project>{81f07faf-16b1-4eef-a46e-db79481456dc}</Project>
+      <Name>Domain</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

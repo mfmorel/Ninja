@@ -4,17 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GalaSoft.MvvmLight;
-using Ninja.Domain.Model;
 
 namespace Ninja.ViewModel
 {
     public class NinjaViewModel : ViewModelBase
     {
-        public int ID
-        {
-            get { return _ninja.ID; }
-            set { _ninja.ID = value; RaisePropertyChanged("ID"); }
-        }
+        private Domain.Ninja _ninja;
 
         public string Name
         {
@@ -22,12 +17,12 @@ namespace Ninja.ViewModel
             set { _ninja.Name = value; RaisePropertyChanged("Name"); }
         }
 
-        internal Domain.Ninja ToModel()
+        public int? Gold
         {
-            return _ninja;
+            get { return _ninja.Gold; }
+            set { _ninja.Gold = value; RaisePropertyChanged("Gold"); }
         }
 
-        private Domain.Ninja _ninja;
         public NinjaViewModel()
         {
             _ninja = new Domain.Ninja();
@@ -36,6 +31,10 @@ namespace Ninja.ViewModel
         public NinjaViewModel(Domain.Ninja ninja)
         {
             _ninja = ninja;
+        }
+        internal Domain.Ninja ToModel()
+        {
+            return _ninja;
         }
     }
 }

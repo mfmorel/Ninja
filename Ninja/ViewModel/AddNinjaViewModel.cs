@@ -1,31 +1,42 @@
-﻿using System.Windows.Input;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Input;
+using Domain;
 using GalaSoft.MvvmLight.CommandWpf;
-using Ninja.Domain;
-using Ninja.View;
 
 namespace Ninja.ViewModel
 {
-    public class AddNinjaViewModel : Router
+    public class AddNinjaViewModel
     {
-        private NinjaListViewModel _ninjaList;
+        private NinjaListViewModel _ninjaListViewModel;
+
         public NinjaViewModel Ninja { get; set; }
+
         public ICommand AddNinjaCommand { get; set; }
-        public AddNinjaViewModel(NinjaListViewModel ninjaList)
+
+        public AddNinjaViewModel(NinjaListViewModel nlvm)
         {
-            this._ninjaList = ninjaList;
-            this.Ninja = new NinjaViewModel();
-            AddNinjaCommand = new RelayCommand(AddNinja);
+            _ninjaListViewModel = nlvm;
+            Ninja = new NinjaViewModel();
+            AddNinjaCommand = new RelayCommand(AddNinja, CanAddNinja);
         }
 
         private void AddNinja()
         {
-            _ninjaList.Ninjas.Add(Ninja);
+            _ninjaListViewModel.NinjaList.Add(Ninja);
             using (var context = new NinjaEntities())
             {
                 context.Ninjas.Add(Ninja.ToModel());
                 context.SaveChanges();
             }
-            GetAddNinjaView.Close();
+        }
+
+        private bool CanAddNinja()
+        {
+            return true;
         }
     }
 }

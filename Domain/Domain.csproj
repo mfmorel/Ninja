@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9988CA57-4E8B-41FD-8BEA-A0E285FD60C8}</ProjectGuid>
+    <ProjectGuid>{81F07FAF-16B1-4EEF-A46E-DB79481456DC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Ninja.Domain</RootNamespace>
-    <AssemblyName>Ninja.Domain</AssemblyName>
+    <RootNamespace>Domain</RootNamespace>
+    <AssemblyName>Domain</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -57,7 +57,6 @@
     <Compile Include="C__RefactorLog.cs">
       <DependentUpon>NinjaEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\Ninja.cs" />
     <Compile Include="Ninja.cs">
       <DependentUpon>NinjaEntities.tt</DependentUpon>
     </Compile>
@@ -79,17 +78,18 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.Config" />
     <EntityDeploy Include="NinjaEntities.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>NinjaEntities.Designer.cs</LastGenOutput>
     </EntityDeploy>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.Config" />
     <None Include="NinjaEntities.edmx.diagram">
       <DependentUpon>NinjaEntities.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="NinjaEntities.Context.tt">
@@ -102,9 +102,6 @@
       <DependentUpon>NinjaEntities.edmx</DependentUpon>
       <LastGenOutput>NinjaEntities.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

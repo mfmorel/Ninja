@@ -7,16 +7,15 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Ninja.Domain
+namespace Domain
 {
     using System;
     using System.Collections.Generic;
     
     public partial class Ninja
     {
-        public int ID { get; set; }
         public string Name { get; set; }
-        public Nullable<int> Gold { get; set; }
+        public int Gold { get; set; }
         public Nullable<int> Head { get; set; }
         public Nullable<int> Shoulder { get; set; }
         public Nullable<int> Chest { get; set; }

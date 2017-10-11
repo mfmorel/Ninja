@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Ninja.Domain
+namespace Domain
 {
     using System;
     using System.Data.Entity;

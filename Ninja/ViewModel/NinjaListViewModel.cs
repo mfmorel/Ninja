@@ -10,7 +10,7 @@ namespace Ninja.ViewModel
 {
     public class NinjaListViewModel : Router
     {
-        public ObservableCollection<NinjaViewModel> Ninjas { get; set; }
+        public ObservableCollection<NinjaViewModel> NinjaList { get; set; }
 
         public ICommand ShowAddNinjaCommand { get; set; }
 
@@ -29,6 +29,7 @@ namespace Ninja.ViewModel
         public NinjaListViewModel()
         {
             NinjaGrids = new List<NinjaGrid>();
+            NinjaList = new ObservableCollection<NinjaViewModel>();
             ShowAddNinjaCommand = new RelayCommand(ShowAddNinja);
         }
 
