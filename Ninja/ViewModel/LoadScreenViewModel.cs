@@ -77,7 +77,7 @@ namespace Ninja.ViewModel
 
         public ICommand ToggleSoundCommand { get; set; }
 
-        private Timer timer;
+        private Timer _timer;
 
         public LoadScreenViewModel()
         {
