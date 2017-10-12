@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Ninja.View"
         mc:Ignorable="d"
         Title="AddNinjaView" Height="300" Width="300"
-        DataContext="{Binding AddNinja, Source={StaticResource Locator}}">
+        DataContext="{Binding AddNinja, Source={StaticResource Locator}}" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
         <StackPanel>
             <TextBlock Text="Ninja:" Margin="0,5,0,0"  />

@@ -94,6 +94,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\INinja.cs" />
+    <Compile Include="Model\NinjaRepository.cs" />
     <Compile Include="ViewModel\AddNinjaViewModel.cs" />
     <Compile Include="ViewModel\LoadScreenViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
@@ -177,7 +179,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Model\" />
     <Folder Include="Properties\DataSources\" />
   </ItemGroup>
   <ItemGroup>
