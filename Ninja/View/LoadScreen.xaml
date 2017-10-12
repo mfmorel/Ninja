@@ -12,7 +12,7 @@
         Title="LoadScreen" 
         Height="600" 
         Width="800"
-        DataContext="{Binding LoadScreen, Source={StaticResource Locator}}" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="/Ninja;component/Resources/download_icon.png">
+        DataContext="{Binding LoadScreen, Source={StaticResource Locator}}" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="/Ninja;component/Resources/download_icon.png" SizeToContent="WidthAndHeight">
     <Window.Background>
         <ImageBrush ImageSource="../Resources/loadscreen_background.png"></ImageBrush>
     </Window.Background>
