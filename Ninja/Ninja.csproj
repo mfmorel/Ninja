@@ -220,6 +220,8 @@
     <Resource Include="Resources\Images\Shoulders\Mountain_of_the_Light.png" />
     <Resource Include="Resources\Images\Shoulders\Vyr%27s_Proud_Pauldrons.png" />
     <Resource Include="Resources\background.png" />
+    <Resource Include="Resources\Runescape_music_logo_off.png" />
+    <Resource Include="Resources\Runescape_music_logo_on.png" />
     <Content Include="Resources\theme_song.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
