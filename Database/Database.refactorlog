@@ -35,4 +35,18 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="ArmourID" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="febf0cff-2f9e-4b6a-b4f5-5c1e1b12457f" ChangeDateTime="10/12/2017 13:28:13">
+    <Property Name="ElementName" Value="[dbo].[NinjaID]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[Ninja_equipment]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[NinjaName]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="57284aac-7e3a-4725-94af-3fd10306d22f" ChangeDateTime="10/12/2017 13:28:18">
+    <Property Name="ElementName" Value="[dbo].[Ninja_equipment].[NinjaID]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Ninja_equipment]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="NinjaName" />
+  </Operation>
 </Operations>

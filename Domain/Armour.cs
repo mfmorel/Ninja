@@ -22,11 +22,11 @@ namespace Domain
     
         public int ID { get; set; }
         public string Category { get; set; }
-        public Nullable<int> Strength { get; set; }
-        public Nullable<int> Intelligence { get; set; }
-        public Nullable<int> Agility { get; set; }
+        public int Strength { get; set; }
+        public int Intelligence { get; set; }
+        public int Agility { get; set; }
         public string Name { get; set; }
-        public Nullable<int> Price { get; set; }
+        public int Price { get; set; }
         public string Picture_location { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

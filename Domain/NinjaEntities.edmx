@@ -16,13 +16,13 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" Nullable="false" />
-          <Property Name="Category" Type="nchar" MaxLength="10" />
-          <Property Name="Strength" Type="int" />
-          <Property Name="Intelligence" Type="int" />
-          <Property Name="Agility" Type="int" />
-          <Property Name="Name" Type="nchar" MaxLength="100" />
-          <Property Name="Price" Type="int" />
-          <Property Name="Picture_location" Type="nchar" MaxLength="200" />
+          <Property Name="Category" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Strength" Type="int" Nullable="false" />
+          <Property Name="Intelligence" Type="int" Nullable="false" />
+          <Property Name="Agility" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nchar" MaxLength="100" Nullable="false" />
+          <Property Name="Price" Type="int" Nullable="false" />
+          <Property Name="Picture_location" Type="nchar" MaxLength="200" Nullable="false" />
         </EntityType>
         <EntityType Name="Ninja">
           <Key>
@@ -98,13 +98,13 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" />
-          <Property Name="Category" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="Strength" Type="Int32" />
-          <Property Name="Intelligence" Type="Int32" />
-          <Property Name="Agility" Type="Int32" />
-          <Property Name="Name" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
-          <Property Name="Price" Type="Int32" />
-          <Property Name="Picture_location" Type="String" MaxLength="200" FixedLength="true" Unicode="true" />
+          <Property Name="Category" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Strength" Type="Int32" Nullable="false" />
+          <Property Name="Intelligence" Type="Int32" Nullable="false" />
+          <Property Name="Agility" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Price" Type="Int32" Nullable="false" />
+          <Property Name="Picture_location" Type="String" MaxLength="200" FixedLength="true" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Ninjas" Relationship="Self.Ninja_equipment" FromRole="Armour" ToRole="Ninja" />
         </EntityType>
         <EntityType Name="Ninja">

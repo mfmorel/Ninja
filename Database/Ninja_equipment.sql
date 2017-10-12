@@ -1,7 +1,7 @@
 ﻿CREATE TABLE [dbo].[Ninja_equipment]
 (
-	[NinjaID] INT NOT NULL PRIMARY KEY, 
+	[NinjaName] VARCHAR(100) NOT NULL PRIMARY KEY, 
     [ArmourID] INT NOT NULL, 
-    CONSTRAINT [NinjaID] FOREIGN KEY ([NinjaID]) REFERENCES [Ninja](ID), 
-    CONSTRAINT [ArmourID] FOREIGN KEY ([ArmourID]) REFERENCES [Armour]([ID]) 
+    CONSTRAINT [ArmourID] FOREIGN KEY ([ArmourID]) REFERENCES [Armour]([ID]), 
+    CONSTRAINT [NinjaName] FOREIGN KEY ([NinjaName]) REFERENCES [Ninja]([Name]) 
 )
