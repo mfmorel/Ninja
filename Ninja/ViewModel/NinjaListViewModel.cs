@@ -13,6 +13,7 @@ namespace Ninja.ViewModel
     public class NinjaListViewModel : Router
     {
         private AddNinjaView _addNinjaView;
+        private EditNinjaView _editNinjaView;
         public ObservableCollection<NinjaViewModel> NinjaList { get; set; }
         private NinjaViewModel _selectedNinja;
 
@@ -30,6 +31,7 @@ namespace Ninja.ViewModel
 
         public ICommand ShowAddNinjaCommand { get; set; }
         public ICommand DeleteSelectedNinjaCommand { get; set; }
+        public ICommand EditSelectedNinjaCommand { get; set; }
 
         public NinjaListViewModel()
         {
@@ -40,6 +42,7 @@ namespace Ninja.ViewModel
             // Commands
             ShowAddNinjaCommand = new RelayCommand(ShowAddNinja);
             DeleteSelectedNinjaCommand = new RelayCommand(DeleteSelectedNinja);
+            EditSelectedNinjaCommand = new RelayCommand(EditSelectedNinja);
         }
 
         public void ShowAddNinja()
@@ -57,6 +60,12 @@ namespace Ninja.ViewModel
         {
             ninja.DeleteNinja(SelectedNinja.Name);
             NinjaList.Remove(SelectedNinja);
+        }
+
+        private void EditSelectedNinja()
+        {
+            _editNinjaView = new EditNinjaView();
+            _editNinjaView.Show();
         }
     }
 }

@@ -97,6 +97,7 @@
     <Compile Include="Model\INinja.cs" />
     <Compile Include="Model\NinjaRepository.cs" />
     <Compile Include="ViewModel\AddNinjaViewModel.cs" />
+    <Compile Include="ViewModel\EditNinjaViewModel.cs" />
     <Compile Include="ViewModel\LoadScreenViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\NinjaListViewModel.cs" />

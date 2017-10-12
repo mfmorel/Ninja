@@ -40,7 +40,7 @@ namespace Ninja.ViewModel
 
         private bool CanAddNinja()
         {
-            if (String.IsNullOrEmpty(Ninja.Name) || Ninja.Gold <= 0)
+            if (string.IsNullOrEmpty(Ninja.Name) || Ninja.Gold <= 0)
                 return false;
 
             return true;

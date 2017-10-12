@@ -79,6 +79,14 @@ namespace Ninja.ViewModel
             }
         }
 
+        public EditNinjaViewModel EditNinja
+        {
+            get
+            {
+                return new EditNinjaViewModel(Ninjas.SelectedNinja);
+            }
+        }
+
         public static void Cleanup()
         {
             // TODO Clear the ViewModels
