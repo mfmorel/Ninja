@@ -18,6 +18,7 @@ namespace Ninja.View
         private static LoadScreen _loadScreen;
         private static NinjasListView _ninjasListView;
         private static ShopView _shopView;
+        private static NinjaView _ninjaView;
 
         public static AddNinjaView AddNinjaView
         {
@@ -101,6 +102,20 @@ namespace Ninja.View
         public static void HideShopView()
         {
             _shopView?.Close();
+        }
+
+        public static NinjaView NinjaView
+        {
+            get
+            {
+                _ninjaView = new NinjaView();
+                return _ninjaView;
+            }
+        }
+
+        public static void HideNinjaView()
+        {
+            _ninjaView?.Close();
         }
     }
 }

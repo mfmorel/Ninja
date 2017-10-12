@@ -65,7 +65,7 @@
                         <DataGridTemplateColumn>
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Button Padding="5" Command="{Binding DataContext.DeleteSelectedNinjaCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
+                                    <Button Padding="5" Command="{Binding DataContext.ShowNinjaCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
                                             BorderThickness="1" BorderBrush="Black" Foreground="White" Margin="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="auto" Height="30">
                                         <Button.Background>
                                             <ImageBrush ImageSource="/Ninja;component/Resources/button_bg.png"/>

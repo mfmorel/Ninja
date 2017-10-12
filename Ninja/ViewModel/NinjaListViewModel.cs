@@ -31,6 +31,7 @@ namespace Ninja.ViewModel
 
         public ICommand ShowAddNinjaCommand { get; set; }
         public ICommand DeleteSelectedNinjaCommand { get; set; }
+        public ICommand ShowNinjaCommand { get; set; }
 
         public NinjaListViewModel()
         {
@@ -41,8 +42,13 @@ namespace Ninja.ViewModel
             // Commands
             ShowAddNinjaCommand = new RelayCommand(ShowAddNinja);
             DeleteSelectedNinjaCommand = new RelayCommand(DeleteSelectedNinja);
+            ShowNinjaCommand = new RelayCommand(ShowNinja);
         }
 
+        public void ShowNinja()
+        {
+            Router.NinjaView.Show();
+        }
         public void ShowAddNinja()
         {
             Router.AddNinjaView.Show();

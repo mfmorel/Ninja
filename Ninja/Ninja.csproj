@@ -121,6 +121,9 @@
     <Compile Include="View\NinjasListView.xaml.cs">
       <DependentUpon>NinjasListView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\NinjaView.xaml.cs">
+      <DependentUpon>NinjaView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Router.cs" />
     <Compile Include="View\ShopView.xaml.cs">
       <DependentUpon>ShopView.xaml</DependentUpon>
@@ -145,6 +148,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\NinjasListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NinjaView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -231,6 +238,8 @@
     <Resource Include="Resources\Runescape_music_logo_off.png" />
     <Resource Include="Resources\Runescape_music_logo_on.png" />
     <Resource Include="Resources\download_icon.png" />
+    <Resource Include="Resources\Kruk.png" />
+    <Resource Include="Resources\Dragon_scimitar_detail.png" />
     <Content Include="Resources\theme_song.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
