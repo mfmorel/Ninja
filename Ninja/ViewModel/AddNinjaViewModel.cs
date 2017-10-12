@@ -32,10 +32,15 @@ namespace Ninja.ViewModel
                 context.Ninjas.Add(Ninja.ToModel());
                 context.SaveChanges();
             }
+
+            _ninjaListViewModel.NinjaList.Add(Ninja);
         }
 
         private bool CanAddNinja()
         {
+            if (String.IsNullOrEmpty(Ninja.Name) || Ninja.Gold <= 0)
+                return false;
+
             return true;
         }
     }

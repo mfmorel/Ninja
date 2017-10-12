@@ -113,7 +113,7 @@ namespace Ninja.ViewModel
         {
             if (Progress < 100)
             {
-                Progress += 2;
+                Progress += 20;
                 LoadBarText = RandomLoadText();
             }
             else
