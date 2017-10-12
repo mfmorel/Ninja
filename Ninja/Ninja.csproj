@@ -105,6 +105,9 @@
     <Compile Include="View\AddNinjaView.xaml.cs">
       <DependentUpon>AddNinjaView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\EditNinjaView.xaml.cs">
+      <DependentUpon>EditNinjaView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\InventoryView.xaml.cs">
       <DependentUpon>InventoryView.xaml</DependentUpon>
     </Compile>
@@ -126,6 +129,10 @@
       <DependentUpon>NinjaGrid.xaml</DependentUpon>
     </Compile>
     <Page Include="View\AddNinjaView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EditNinjaView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
