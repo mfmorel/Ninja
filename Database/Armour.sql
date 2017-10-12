@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[Armour]
 (
-	[ID] INT NOT NULL PRIMARY KEY, 
+	[Id] INT IDENTITY(1,1) NOT NULL PRIMARY KEY, 
     [Category] NCHAR(10) NOT NULL, 
     [Strength] INT NOT NULL, 
     [Intelligence] INT NOT NULL, 

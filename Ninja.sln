@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ninja", "Ninja\Ninja.csproj
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Database", "Database\Database.sqlproj", "{ACFFFA15-9DB3-4A16-A9A2-76E49D735693}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{81F07FAF-16B1-4EEF-A46E-DB79481456DC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{2660AB88-31A0-4AA4-AE95-449047564824}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,10 +25,10 @@ Global
 		{ACFFFA15-9DB3-4A16-A9A2-76E49D735693}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ACFFFA15-9DB3-4A16-A9A2-76E49D735693}.Release|Any CPU.Build.0 = Release|Any CPU
 		{ACFFFA15-9DB3-4A16-A9A2-76E49D735693}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{81F07FAF-16B1-4EEF-A46E-DB79481456DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{81F07FAF-16B1-4EEF-A46E-DB79481456DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{81F07FAF-16B1-4EEF-A46E-DB79481456DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{81F07FAF-16B1-4EEF-A46E-DB79481456DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2660AB88-31A0-4AA4-AE95-449047564824}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2660AB88-31A0-4AA4-AE95-449047564824}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2660AB88-31A0-4AA4-AE95-449047564824}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2660AB88-31A0-4AA4-AE95-449047564824}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

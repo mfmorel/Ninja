@@ -4,8 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ninja.View"
+        Name="EditNinjaWindow"
         mc:Ignorable="d"
-        Title="Ninja toevoegen" Height="300" Width="300"
+        Title="Ninja aanpassen" Height="300" Width="300"
         DataContext="{Binding EditNinja, Source={StaticResource Locator}}" Icon="/Ninja;component/Resources/download_icon.png" ResizeMode="NoResize" SizeToContent="WidthAndHeight">
     <Window.Background>
         <ImageBrush ImageSource="/Ninja;component/Resources/background.png"></ImageBrush>
@@ -13,12 +14,12 @@
     <Grid>
         <Border Padding="15">
             <StackPanel>
-                <Label Foreground="White" HorizontalAlignment="Center" FontWeight="Bold" FontSize="18">Ninja toevoegen</Label>
+                <Label Foreground="White" HorizontalAlignment="Center" FontWeight="Bold" FontSize="18">Ninja aanpassen</Label>
 
                 <TextBlock Foreground="White" Text="Naam:" Margin="0,15,0,0"  />
-                <TextBox MaxLength="100" Text="{Binding Path=Ninja.Name, Mode=TwoWay}" Padding="5px" />
+                <TextBox MaxLength="100" Text="{Binding Path=Ninja.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Padding="5px" />
 
-                <Button BorderThickness="2" Foreground="White" Content="Ninja aanpassen" Command="{Binding AddNinjaCommand}" CommandParameter="{Binding AddNinjaCommand}"
+                <Button BorderThickness="2" Foreground="White" Content="Ninja aanpassen" Command="{Binding SaveNinjaCommand}" CommandParameter="{Binding ElementName=EditNinjaWindow}"
                         Width="260"  HorizontalAlignment="Left" Margin="0,15,0,0" Padding="5px" BorderBrush="Black" >
                     <Button.Background>
                         <ImageBrush ImageSource="/Ninja;component/Resources/button_bg.png"/>

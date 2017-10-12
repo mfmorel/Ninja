@@ -20,7 +20,7 @@ namespace Domain
             this.Ninjas = new HashSet<Ninja>();
         }
     
-        public int ID { get; set; }
+        public int Id { get; set; }
         public string Category { get; set; }
         public int Strength { get; set; }
         public int Intelligence { get; set; }

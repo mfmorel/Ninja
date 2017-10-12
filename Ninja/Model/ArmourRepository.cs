@@ -5,15 +5,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Domain;
-using Ninja.ViewModel;
+using Ninja.Model.Interfaces;
 
 namespace Ninja.Model
 {
-    class NinjaRepository : INinja
+    class ArmourRepository : IArmour
     {
-        public void DeleteNinja(int id)
+        public List<Domain.Armour> GetArmours()
         {
-            Domain.Ninja ninjatodelete = GetNinja(id);
+            using (var context = new NinjaEntities())
+            {
+                return context.Armours.ToList();
+            }
+        }
+
+        public void DeleteArmour(int id)
+        {
+            Domain.Armour ninjatodelete = GetArmour(id);
 
             using (var context = new NinjaEntities())
             {
@@ -22,38 +30,29 @@ namespace Ninja.Model
             }
         }
 
-        public Domain.Ninja GetNinja(int id)
+        public Domain.Armour GetArmour(int id)
         {
             using (var context = new NinjaEntities())
             {
-                return context.Ninjas.FirstOrDefault(s => s.Id == id);
+                return context.Armours.FirstOrDefault(s => s.Id == id);
             }
         }
 
-        public bool UpdateNinja(Domain.Ninja ninja)
+        public bool UpdateArmour(Domain.Armour armour)
         {
             using (var context = new NinjaEntities())
             {
-                context.Entry(ninja).State = EntityState.Modified;
+                context.Entry(armour).State = EntityState.Modified;
                 try
                 {
                     context.SaveChanges();
                     return true;
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
                     return false;
                 }
             }
         }
-
-        public List<Domain.Ninja> GetNinjas()
-        {
-            using (var context = new NinjaEntities())
-            {
-                return context.Ninjas.ToList();
-            }
-        }
-
     }
 }

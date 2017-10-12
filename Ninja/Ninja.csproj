@@ -94,9 +94,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Model\INinja.cs" />
+    <Compile Include="Model\ArmourRepository.cs" />
+    <Compile Include="Model\Interfaces\IArmour.cs" />
+    <Compile Include="Model\Interfaces\INinja.cs" />
     <Compile Include="Model\NinjaRepository.cs" />
     <Compile Include="ViewModel\AddNinjaViewModel.cs" />
+    <Compile Include="ViewModel\EditNinjaViewModel.cs" />
     <Compile Include="ViewModel\LoadScreenViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\NinjaListViewModel.cs" />
@@ -247,7 +250,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Domain\Domain.csproj">
-      <Project>{81f07faf-16b1-4eef-a46e-db79481456dc}</Project>
+      <Project>{2660ab88-31a0-4aa4-ae95-449047564824}</Project>
       <Name>Domain</Name>
     </ProjectReference>
   </ItemGroup>
