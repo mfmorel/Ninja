@@ -12,6 +12,7 @@ namespace Ninja.ViewModel
 {
     public class NinjaListViewModel : Router
     {
+        private AddNinjaView _addNinjaView;
         public ObservableCollection<NinjaViewModel> NinjaList { get; set; }
         private NinjaViewModel _selectedNinja;
 
@@ -43,7 +44,13 @@ namespace Ninja.ViewModel
 
         public void ShowAddNinja()
         {
-            GetAddNinjaView.Show();
+            _addNinjaView = new AddNinjaView();
+            _addNinjaView.Show();
+        }
+
+        public void HideAddNinja()
+        {
+            _addNinjaView.Close();
         }
 
         private void DeleteSelectedNinja()
