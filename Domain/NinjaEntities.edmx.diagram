@@ -4,9 +4,9 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="ef4b1853fe48431d8762ea4bf947aaa2" Name="Diagram1">
+      <Diagram DiagramId="60bbdc72eb0b4ff58ceeea0126128e2c" Name="Diagram1">
         <EntityTypeShape EntityType="NinjaModel.C__RefactorLog" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="NinjaModel.Armour" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="NinjaModel.Armour" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
         <EntityTypeShape EntityType="NinjaModel.Ninja" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
         <AssociationConnector Association="NinjaModel.Ninja_equipment" ManuallyRouted="false" />
       </Diagram>

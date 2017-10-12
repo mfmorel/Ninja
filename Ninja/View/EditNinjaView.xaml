@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Ninja.View"
         Name="EditNinjaWindow"
         mc:Ignorable="d"
-        Title="Ninja toevoegen" Height="300" Width="300"
+        Title="Ninja aanpassen" Height="300" Width="300"
         DataContext="{Binding EditNinja, Source={StaticResource Locator}}" Icon="/Ninja;component/Resources/download_icon.png" ResizeMode="NoResize" SizeToContent="WidthAndHeight">
     <Window.Background>
         <ImageBrush ImageSource="/Ninja;component/Resources/background.png"></ImageBrush>
@@ -14,7 +14,7 @@
     <Grid>
         <Border Padding="15">
             <StackPanel>
-                <Label Foreground="White" HorizontalAlignment="Center" FontWeight="Bold" FontSize="18">Ninja toevoegen</Label>
+                <Label Foreground="White" HorizontalAlignment="Center" FontWeight="Bold" FontSize="18">Ninja aanpassen</Label>
 
                 <TextBlock Foreground="White" Text="Naam:" Margin="0,15,0,0"  />
                 <TextBox MaxLength="100" Text="{Binding Path=Ninja.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Padding="5px" />

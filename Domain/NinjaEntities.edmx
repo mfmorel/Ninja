@@ -13,9 +13,9 @@
         </EntityType>
         <EntityType Name="Armour">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Category" Type="nchar" MaxLength="10" Nullable="false" />
           <Property Name="Strength" Type="int" Nullable="false" />
           <Property Name="Intelligence" Type="int" Nullable="false" />
@@ -26,8 +26,9 @@
         </EntityType>
         <EntityType Name="Ninja">
           <Key>
-            <PropertyRef Name="Name" />
+            <PropertyRef Name="Id" />
           </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="Gold" Type="int" Nullable="false" />
           <Property Name="Head" Type="int" />
@@ -39,9 +40,9 @@
         </EntityType>
         <EntityType Name="Ninja_equipment">
           <Key>
-            <PropertyRef Name="NinjaName" />
+            <PropertyRef Name="NinjaID" />
           </Key>
-          <Property Name="NinjaName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="NinjaID" Type="int" Nullable="false" />
           <Property Name="ArmourID" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="ArmourID">
@@ -49,22 +50,22 @@
           <End Role="Ninja_equipment" Type="Self.Ninja_equipment" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Armour">
-              <PropertyRef Name="ID" />
+              <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Ninja_equipment">
               <PropertyRef Name="ArmourID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="NinjaName">
+        <Association Name="NinjaID">
           <End Role="Ninja" Type="Self.Ninja" Multiplicity="1" />
           <End Role="Ninja_equipment" Type="Self.Ninja_equipment" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="Ninja">
-              <PropertyRef Name="Name" />
+              <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Ninja_equipment">
-              <PropertyRef Name="NinjaName" />
+              <PropertyRef Name="NinjaID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -77,7 +78,7 @@
             <End Role="Armour" EntitySet="Armour" />
             <End Role="Ninja_equipment" EntitySet="Ninja_equipment" />
           </AssociationSet>
-          <AssociationSet Name="NinjaName" Association="Self.NinjaName">
+          <AssociationSet Name="NinjaID" Association="Self.NinjaID">
             <End Role="Ninja" EntitySet="Ninja" />
             <End Role="Ninja_equipment" EntitySet="Ninja_equipment" />
           </AssociationSet>
@@ -95,9 +96,9 @@
         </EntityType>
         <EntityType Name="Armour">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Category" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="Strength" Type="Int32" Nullable="false" />
           <Property Name="Intelligence" Type="Int32" Nullable="false" />
@@ -109,8 +110,9 @@
         </EntityType>
         <EntityType Name="Ninja">
           <Key>
-            <PropertyRef Name="Name" />
+            <PropertyRef Name="Id" />
           </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Gold" Type="Int32" Nullable="false" />
           <Property Name="Head" Type="Int32" />
@@ -150,7 +152,7 @@
           <EntitySetMapping Name="Armours">
             <EntityTypeMapping TypeName="NinjaModel.Armour">
               <MappingFragment StoreEntitySet="Armour">
-                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Category" ColumnName="Category" />
                 <ScalarProperty Name="Strength" ColumnName="Strength" />
                 <ScalarProperty Name="Intelligence" ColumnName="Intelligence" />
@@ -164,6 +166,7 @@
           <EntitySetMapping Name="Ninjas">
             <EntityTypeMapping TypeName="NinjaModel.Ninja">
               <MappingFragment StoreEntitySet="Ninja">
+                <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Gold" ColumnName="Gold" />
                 <ScalarProperty Name="Head" ColumnName="Head" />
@@ -177,10 +180,10 @@
           </EntitySetMapping>
           <AssociationSetMapping Name="Ninja_equipment" TypeName="NinjaModel.Ninja_equipment" StoreEntitySet="Ninja_equipment">
             <EndProperty Name="Armour">
-              <ScalarProperty Name="ID" ColumnName="ArmourID" />
+              <ScalarProperty Name="Id" ColumnName="ArmourID" />
             </EndProperty>
             <EndProperty Name="Ninja">
-              <ScalarProperty Name="Name" ColumnName="NinjaName" />
+              <ScalarProperty Name="Id" ColumnName="NinjaID" />
             </EndProperty>
           </AssociationSetMapping>
         </EntityContainerMapping>

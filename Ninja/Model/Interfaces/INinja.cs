@@ -10,7 +10,11 @@ namespace Ninja.Model
     interface INinja
     {
         List<Domain.Ninja> GetNinjas();
-        void DeleteNinja(String name);
-        Domain.Ninja GetNinja(String name);
+
+        void DeleteNinja(int id);
+
+        Domain.Ninja GetNinja(int id);
+
+        bool UpdateNinja(Domain.Ninja ninja);
     }
 }

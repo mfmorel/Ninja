@@ -14,6 +14,7 @@ namespace Domain
     
     public partial class Ninja
     {
+        public int Id { get; set; }
         public string Name { get; set; }
         public int Gold { get; set; }
         public Nullable<int> Head { get; set; }
