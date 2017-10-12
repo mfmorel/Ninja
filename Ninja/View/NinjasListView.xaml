@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Ninja.View"
         mc:Ignorable="d"
         Title="NinjasListView" Height="300" Width="400"
-        DataContext="{Binding Ninjas, Source={StaticResource Locator}}">
+        DataContext="{Binding Ninjas, Source={StaticResource Locator}}" Icon="/Ninja;component/Resources/download_icon.png">
     <Grid>
         <Grid>
             <Grid.RowDefinitions>

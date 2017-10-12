@@ -5,18 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ninja.View"
         mc:Ignorable="d"
-        Title="AddNinjaView" Height="300" Width="300"
-        DataContext="{Binding AddNinja, Source={StaticResource Locator}}">
+        Title="Ninja toevoegen" Height="300" Width="300"
+        DataContext="{Binding AddNinja, Source={StaticResource Locator}}" Icon="/Ninja;component/Resources/download_icon.png" ResizeMode="NoResize" SizeToContent="WidthAndHeight">
+    <Window.Background>
+        <ImageBrush ImageSource="/Ninja;component/Resources/background.png"></ImageBrush>
+    </Window.Background>
     <Grid>
-        <StackPanel>
-            <TextBlock Text="Ninja:" Margin="0,5,0,0"  />
-            <TextBox MaxLength="50" Text="{Binding Path=Ninja.Name, Mode=TwoWay}" />
+        <Border Padding="15">
+            <StackPanel>
+                <Label Foreground="White" HorizontalAlignment="Center" FontWeight="Bold" FontSize="18">Ninja toevoegen</Label>
+                
+                <TextBlock Foreground="White" Text="Naam:" Margin="0,15,0,0"  />
+                <TextBox MaxLength="100" Text="{Binding Path=Ninja.Name, Mode=TwoWay}" Padding="5px" />
 
-            <TextBlock Text="Geld:" Margin="0,5,0,0"  />
-            <TextBox MaxLength="50" Text="{Binding Path=Ninja.Gold, Mode=TwoWay}" />
+                <TextBlock Foreground="White" Text="Geld:" Margin="0,15,0,0"  />
+                <TextBox MaxLength="100" Text="{Binding Path=Ninja.Gold, Mode=TwoWay}" Padding="5px" />
 
-            <Button Content="Add" Command="{Binding AddNinjaCommand}" CommandParameter="{Binding AddNinjaCommand}"
-                    Width="100"  HorizontalAlignment="Left" Margin="0,5,0,0" />
-        </StackPanel>
+                <Button BorderThickness="2" Foreground="White" Content="Ninja toevoegen" Command="{Binding AddNinjaCommand}" CommandParameter="{Binding AddNinjaCommand}"
+                        Width="260"  HorizontalAlignment="Left" Margin="0,15,0,0" Padding="5px" BorderBrush="Black" >
+                    <Button.Background>
+                        <ImageBrush ImageSource="/Ninja;component/Resources/button_bg.png"/>
+                    </Button.Background>
+                </Button>
+            </StackPanel>
+        </Border>
     </Grid>
 </Window>

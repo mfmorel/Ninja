@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ninja.View"
         mc:Ignorable="d"
-        Title="InventoryView" Height="300" Width="300">
+        Title="InventoryView" Height="300" Width="300" Icon="/Ninja;component/Resources/download_icon.png">
     <Grid>
         
     </Grid>

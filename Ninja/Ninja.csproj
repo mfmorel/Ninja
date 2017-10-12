@@ -222,6 +222,7 @@
     <Resource Include="Resources\background.png" />
     <Resource Include="Resources\Runescape_music_logo_off.png" />
     <Resource Include="Resources\Runescape_music_logo_on.png" />
+    <Resource Include="Resources\download_icon.png" />
     <Content Include="Resources\theme_song.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
