@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Controls;
 using System.Windows.Input;
+using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
 using Ninja.Model;
 using Ninja.View;
@@ -10,7 +11,7 @@ using Ninja.View.UserControl;
 
 namespace Ninja.ViewModel
 {
-    public class NinjaListViewModel : Router
+    public class NinjaListViewModel : ViewModelBase
     {
         private AddNinjaView _addNinjaView;
         public ObservableCollection<NinjaViewModel> NinjaList { get; set; }
@@ -44,13 +45,7 @@ namespace Ninja.ViewModel
 
         public void ShowAddNinja()
         {
-            _addNinjaView = new AddNinjaView();
-            _addNinjaView.Show();
-        }
-
-        public void HideAddNinja()
-        {
-            _addNinjaView.Close();
+            Router.AddNinjaView.Show();
         }
 
         private void DeleteSelectedNinja()
