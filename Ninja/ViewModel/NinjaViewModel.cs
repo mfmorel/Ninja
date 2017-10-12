@@ -17,7 +17,7 @@ namespace Ninja.ViewModel
             set { _ninja.Name = value; RaisePropertyChanged("Name"); }
         }
 
-        public int? Gold
+        public int Gold
         {
             get { return _ninja.Gold; }
             set { _ninja.Gold = value; RaisePropertyChanged("Gold"); }
