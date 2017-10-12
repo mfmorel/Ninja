@@ -194,12 +194,12 @@ namespace Ninja.ViewModel
         {
             if (_playerIsPlaying)
             {
-                SoundToggleImageLocation = "/Resources/Runescape_music_logo_off.png";
+                SoundToggleImageLocation = "\\Resources\\Runescape_music_logo_off.png";
                 _player.Stop();
             }
             else
             {
-                SoundToggleImageLocation = "/Resources/Runescape_music_logo_on.png";
+                SoundToggleImageLocation = "\\Resources\\Runescape_music_logo_on.png";
                 _player.Play();
             }
             _playerIsPlaying = !_playerIsPlaying;
