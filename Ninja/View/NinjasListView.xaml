@@ -5,31 +5,77 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ninja.View"
         mc:Ignorable="d"
-        Title="NinjasListView" Height="300" Width="400"
-        DataContext="{Binding Ninjas, Source={StaticResource Locator}}" WindowStartupLocation="CenterScreen">
+        Title="Ninja's" Height="300" Width="400"
+        DataContext="{Binding Ninjas, Source={StaticResource Locator}}" WindowStartupLocation="CenterScreen" Icon="/Ninja;component/Resources/download_icon.png" ResizeMode="NoResize" SizeToContent="WidthAndHeight">
+    <Window.Background>
+        <ImageBrush ImageSource="/Ninja;component/Resources/background.png"></ImageBrush>
+    </Window.Background>
     <Grid>
-        <Label Height="50" FontWeight="Bold" FontSize="20" HorizontalAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top">Selecteer een ninja</Label>
-        <Button Command="{Binding ShowAddNinjaCommand}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20" FontWeight="Bold">+</Button>
-        <DataGrid AutoGenerateColumns="False" IsReadOnly="true" SelectedItem="{Binding SelectedNinja, Mode=TwoWay}" ItemsSource="{Binding NinjaList}" BorderBrush="#FF979494" GridLinesVisibility="Horizontal" HorizontalGridLinesBrush="#FFF0E0E0" HeadersVisibility="Column">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="NaamHenk" Binding="{Binding Name}" Foreground="#FF1D1616" />
-                <DataGridTextColumn Header="Goud" Binding="{Binding Gold}" Foreground="#FF1D1616" />
-                <DataGridTemplateColumn>
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Button BorderThickness="0,0,0,1" BorderBrush="#FF999A9B" Foreground="White" Margin="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="30" Background="#FF6F9BDA">Aanpassen</Button>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTemplateColumn>
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Button Command="{Binding DataContext.DeleteSelectedNinjaCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
-                                BorderThickness="0,0,0,1" BorderBrush="#FF999A9B" Foreground="White" Margin="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="30" Background="#FF6F9BDA">Verwijderen</Button>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-            </DataGrid.Columns>
-        </DataGrid>
+        <StackPanel>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="30"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="30"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Label Foreground="White" Grid.Row="0" Grid.Column="1" Height="30" FontWeight="Bold" FontSize="18" HorizontalAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top">Kies een ninja</Label>
+                <Button BorderThickness="1" Foreground="White" Grid.Row="0" Grid.Column="2" Command="{Binding ShowAddNinjaCommand}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20" FontWeight="Bold" BorderBrush="Black">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/Ninja;component/Resources/button_bg.png"/>
+                    </Button.Background> +
+                </Button>
+            </Grid>
+            <ScrollViewer Height="240">
+                <DataGrid Background="Transparent" AutoGenerateColumns="False" IsReadOnly="true" SelectedItem="{Binding SelectedNinja, Mode=TwoWay}" ItemsSource="{Binding NinjaList}" BorderBrush="#FF979494" GridLinesVisibility="Horizontal" HorizontalGridLinesBrush="#FFF0E0E0" HeadersVisibility="Column">
+                    <DataGrid.RowStyle>
+                        <Style TargetType="DataGridRow">
+                            <Setter Property="Background" Value="{x:Null}"/>
+                        </Style>
+                    </DataGrid.RowStyle>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Naam" Binding="{Binding Name}" Foreground="Black" />
+                        <DataGridTextColumn Header="Goud" Binding="{Binding Gold}" Foreground="Black" />
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Padding="5" BorderThickness="1" BorderBrush="Black" Foreground="White" Margin="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="auto" Height="30">
+                                        <Button.Background>
+                                            <ImageBrush ImageSource="/Ninja;component/Resources/button_bg.png"/>
+                                        </Button.Background> Aanpassen
+                                    </Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Padding="5" Command="{Binding DataContext.DeleteSelectedNinjaCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
+                                            BorderThickness="1" BorderBrush="Black" Foreground="White" Margin="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="auto" Height="30">
+                                        <Button.Background>
+                                            <ImageBrush ImageSource="/Ninja;component/Resources/button_bg.png"/>
+                                        </Button.Background> Verwijderen
+                                    </Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Padding="5" Command="{Binding DataContext.DeleteSelectedNinjaCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
+                                            BorderThickness="1" BorderBrush="Black" Foreground="White" Margin="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="auto" Height="30">
+                                        <Button.Background>
+                                            <ImageBrush ImageSource="/Ninja;component/Resources/button_bg.png"/>
+                                        </Button.Background> Gebruiken
+                                    </Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </ScrollViewer>
+        </StackPanel>
     </Grid>
 </Window>

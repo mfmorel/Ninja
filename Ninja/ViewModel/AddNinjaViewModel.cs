@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Domain;
 using GalaSoft.MvvmLight.CommandWpf;
+using Ninja.View;
 
 namespace Ninja.ViewModel
 {
-    public class AddNinjaViewModel
+    public class AddNinjaViewModel : Router
     {
         private NinjaListViewModel _ninjaListViewModel;
 
@@ -26,7 +27,6 @@ namespace Ninja.ViewModel
 
         private void AddNinja()
         {
-            _ninjaListViewModel.NinjaList.Add(Ninja);
             using (var context = new NinjaEntities())
             {
                 context.Ninjas.Add(Ninja.ToModel());
@@ -34,6 +34,8 @@ namespace Ninja.ViewModel
             }
 
             _ninjaListViewModel.NinjaList.Add(Ninja);
+
+            _ninjaListViewModel.HideAddNinja();
         }
 
         private bool CanAddNinja()

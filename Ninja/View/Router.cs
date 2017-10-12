@@ -11,6 +11,8 @@ namespace Ninja.View
 {
     public class Router : ViewModelBase
     {
+        private AddNinjaView _addNinjaView;
+
         public Router()
         {
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
@@ -49,16 +51,6 @@ namespace Ninja.View
             }
         }
 
-        public AddNinjaView GetAddNinjaView
-        {
-            get
-            {
-//                if (!SimpleIoc.Default.IsRegistered<AddNinjaView>())
-//                    SimpleIoc.Default.Register<AddNinjaView>();
-//
-//                return ServiceLocator.Current.GetInstance<AddNinjaView>();
-                return new AddNinjaView();
-            }
-        }
+        public AddNinjaView GetAddNinjaView => new AddNinjaView();
     }
 }
