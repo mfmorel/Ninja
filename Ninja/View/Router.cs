@@ -6,51 +6,101 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Ninja.View
 {
-    public class Router : ViewModelBase
+    public static class Router
     {
-        private AddNinjaView _addNinjaView;
+        private static AddNinjaView _addNinjaView;
+        private static EditNinjaView _editNinjaView;
+        private static InventoryView _inventoryView;
+        private static LoadScreen _loadScreen;
+        private static NinjasListView _ninjasListView;
+        private static ShopView _shopView;
 
-        public Router()
-        {
-            ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
-        }
-
-        public InventoryView GetInventoryView
-        {
-            get
-            {
-                if (!SimpleIoc.Default.IsRegistered<InventoryView>())
-                    SimpleIoc.Default.Register<InventoryView>();
-
-                return ServiceLocator.Current.GetInstance<InventoryView>();
-            }
-        }
-
-        public ShopView GetShopView
+        public static AddNinjaView AddNinjaView
         {
             get
             {
-                if (!SimpleIoc.Default.IsRegistered<ShopView>())
-                    SimpleIoc.Default.Register<ShopView>();
-
-                return ServiceLocator.Current.GetInstance<ShopView>();
+                _addNinjaView = new AddNinjaView();
+                return _addNinjaView;
             }
         }
 
-        public NinjasListView GetNinjasListView
+        public static void HideAddNinjaView()
+        {
+            _addNinjaView?.Close();
+        }
+
+        public static EditNinjaView EditNinjaView
         {
             get
             {
-                if (!SimpleIoc.Default.IsRegistered<NinjasListView>())
-                    SimpleIoc.Default.Register<NinjasListView>();
-
-                return ServiceLocator.Current.GetInstance<NinjasListView>();
+                _editNinjaView = new EditNinjaView();
+                return _editNinjaView;
             }
         }
 
-        public AddNinjaView GetAddNinjaView => new AddNinjaView();
+        public static void HideEditNinjaView()
+        {
+            _editNinjaView?.Close();
+        }
+
+        public static InventoryView InventoryView
+        {
+            get
+            {
+                _inventoryView = new InventoryView();
+                return _inventoryView;
+            }
+        }
+
+        public static void HideInventoryView()
+        {
+            _inventoryView?.Close();
+        }
+
+        public static LoadScreen LoadScreen
+        {
+            get
+            {
+                _loadScreen = new LoadScreen();
+                return _loadScreen;
+            }
+        }
+
+        public static void HideLoadScreen()
+        {
+            _loadScreen?.Close();
+        }
+
+        public static NinjasListView NinjaListView
+        {
+            get
+            {
+                _ninjasListView = new NinjasListView();
+                return _ninjasListView;
+            }
+        }
+
+        public static void HideNinjaListView()
+        {
+            _ninjasListView?.Close();
+        }
+
+        public static ShopView ShopView
+        {
+            get
+            {
+                _shopView = new ShopView();
+                return _shopView;
+            }
+        }
+
+        public static void HideShopView()
+        {
+            _shopView?.Close();
+        }
     }
 }

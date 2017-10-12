@@ -14,7 +14,7 @@ using System.Windows.Controls.Primitives;
 
 namespace Ninja.ViewModel
 {
-    public class LoadScreenViewModel : Router
+    public class LoadScreenViewModel : ViewModelBase
     {
         public ICommand PlayCommand { get; set; }
         private SoundPlayer _player;
@@ -134,7 +134,7 @@ namespace Ninja.ViewModel
             _player.Dispose();
             _playerIsPlaying = false;
 
-            var ninjas = this.GetNinjasListView;
+            var ninjas = Router.NinjaListView;
             ninjas.Show();
 
             Application.Current.MainWindow.Close();
