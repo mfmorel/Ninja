@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ninja.View"
         mc:Ignorable="d"
-        Title="Shop" Height="300" Width="400" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="Shop" Height="300" Width="400" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="/Ninja;component/Resources/download_icon.png">
     <Window.Background>
         <ImageBrush ImageSource="../Resources/background.png"></ImageBrush>
     </Window.Background>
