@@ -53,18 +53,12 @@ namespace Ninja.ViewModel
         {
             Router.NinjaView.Show();
             ShowShop();
-            ShowItemCrud();
             Router.HideNinjaListView();
         }
 
         public void ShowShop()
         {
             Router.ShopView.Show();
-        }
-
-        public void ShowItemCrud()
-        {
-            Router.ArmourListView.Show();
         }
 
         public void ShowAddNinja()
