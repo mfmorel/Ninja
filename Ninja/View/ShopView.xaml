@@ -5,7 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ninja.View"
         mc:Ignorable="d"
-        Title="Shop" Height="300" Width="400" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="/Ninja;component/Resources/download_icon.png" SizeToContent="WidthAndHeight">
+        Title="Shop" 
+        Height="300" 
+        Width="400" 
+        ResizeMode="NoResize" 
+        WindowStartupLocation="CenterScreen" 
+        Icon="/Ninja;component/Resources/download_icon.png" 
+        SizeToContent="WidthAndHeight"
+        DataContext="{Binding Shop, Source={StaticResource Locator}}">
     <Window.Background>
         <ImageBrush ImageSource="../Resources/background.png"></ImageBrush>
     </Window.Background>
@@ -62,6 +69,26 @@
                     </Button.Effect>
                 </Button>
             </StackPanel>
+            <DataGrid Grid.Row="0" Grid.Column="1" IsReadOnly="True" HeadersVisibility="None" AutoGenerateColumns="False" ItemsSource="{Binding ArmourListViewModel.ArmourList}" SelectedItem="{Binding ArmourListViewModel.SelectedArmour, Mode=TwoWay}">
+                <DataGrid.RowStyle>
+                    <Style TargetType="DataGridRow">
+                        <Setter Property="Background" Value="{x:Null}"/>
+                    </Style>
+                </DataGrid.RowStyle>
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Image Width="50" Height="50" Source="{Binding Picture_location}"></Image>
+                                    <TextBlock Text="{Binding Name}"></TextBlock>
+                                    <TextBlock Text="{Binding Price}" Foreground="Black" />
+                                </Grid>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
         </Grid>
     </Grid>
 </Window>

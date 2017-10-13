@@ -115,6 +115,7 @@
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\NinjaListViewModel.cs" />
     <Compile Include="ViewModel\NinjaViewModel.cs" />
+    <Compile Include="ViewModel\ShopViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="ViewModel\ViewNinjaViewModel.cs" />
     <Compile Include="View\AddArmourView.xaml.cs">

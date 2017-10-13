@@ -120,6 +120,14 @@ namespace Ninja.ViewModel
             }
         }
 
+        public ShopViewModel Shop
+        {
+            get
+            {
+                return new ShopViewModel(Armours);
+            }
+        }
+
         public static void Cleanup()
         {
             // TODO Clear the ViewModels
