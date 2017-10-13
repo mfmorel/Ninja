@@ -15,5 +15,6 @@ namespace Ninja.Helper
         public static readonly ICommand ExitCommand = new RelayCommand(() => System.Windows.Application.Current.Shutdown());
 
         public static readonly ICommand ManageArmourCommand = new RelayCommand(() => Router.ArmourListView.Show());
+
     }
 }
