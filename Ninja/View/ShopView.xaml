@@ -11,7 +11,7 @@
         ResizeMode="NoResize" 
         WindowStartupLocation="CenterScreen" 
         Icon="/Ninja;component/Resources/download_icon.png" 
-        SizeToContent="WidthAndHeight"
+        
         DataContext="{Binding Shop, Source={StaticResource Locator}}">
     <Window.Background>
         <ImageBrush ImageSource="../Resources/background.png"></ImageBrush>
@@ -69,7 +69,7 @@
                     </Button.Effect>
                 </Button>
             </StackPanel>
-            <DataGrid Grid.Row="0" Grid.Column="1" IsReadOnly="True" HeadersVisibility="None" AutoGenerateColumns="False" ItemsSource="{Binding ArmourListViewModel.ArmourList}" SelectedItem="{Binding ArmourListViewModel.SelectedArmour, Mode=TwoWay}">
+            <DataGrid Background="Transparent" Grid.Row="0" Grid.Column="1" IsReadOnly="True" HeadersVisibility="None" AutoGenerateColumns="False" ItemsSource="{Binding ArmourListViewModel.ArmourList}" SelectedItem="{Binding ArmourListViewModel.SelectedArmour, Mode=TwoWay}">
                 <DataGrid.RowStyle>
                     <Style TargetType="DataGridRow">
                         <Setter Property="Background" Value="{x:Null}"/>
@@ -80,15 +80,34 @@
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <Grid>
-                                    <Image Width="50" Height="50" Source="{Binding Picture_location}"></Image>
-                                    <TextBlock Text="{Binding Name}"></TextBlock>
-                                    <TextBlock Text="{Binding Price}" Foreground="Black" />
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="50"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Image Grid.Column="0" Width="50" Height="50" Source="{Binding Picture_location}"></Image>
+                                    <StackPanel Grid.Column="1">
+                                        <TextBlock Text="{Binding Name}"></TextBlock>
+                                        <TextBlock Text="{Binding Price}" Foreground="DarkGoldenrod" />
+                                    </StackPanel>
                                 </Grid>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                 </DataGrid.Columns>
             </DataGrid>
+            <Grid Grid.Column="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Image Grid.Column="0" Width="50" Height="50" Source="{Binding ArmourListViewModel.SelectedArmour.Picture_location}"></Image>
+                <StackPanel Grid.Column="1">
+                    <TextBlock Text="{Binding ArmourListViewModel.SelectedArmour.Name}"></TextBlock>
+                    <TextBlock Text="{Binding ArmourListViewModel.SelectedArmour.Price}" Foreground="DarkGoldenrod" />
+                </StackPanel>
+            </Grid>
         </Grid>
     </Grid>
 </Window>

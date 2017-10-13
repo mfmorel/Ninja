@@ -7,5 +7,5 @@
     [Agility] INT NOT NULL, 
     [Name] VARCHAR(100) NOT NULL, 
     [Price] INT NOT NULL, 
-    [Picture_location] VARCHAR(100) NOT NULL
+    [Picture_location] VARCHAR(1000) NOT NULL
 )
