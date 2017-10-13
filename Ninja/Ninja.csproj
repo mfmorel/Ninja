@@ -96,7 +96,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Enum\ECategory.cs" />
+    <Compile Include="Enum\Category.cs" />
     <Compile Include="Helper\Commands.cs" />
     <Compile Include="Model\ArmourRepository.cs" />
     <Compile Include="Model\Interfaces\IArmour.cs" />
