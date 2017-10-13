@@ -14,7 +14,6 @@ namespace Ninja.View
     {
         private static AddNinjaView _addNinjaView;
         private static EditNinjaView _editNinjaView;
-        private static InventoryView _inventoryView;
         private static LoadScreen _loadScreen;
         private static NinjasListView _ninjasListView;
         private static ShopView _shopView;
@@ -49,20 +48,6 @@ namespace Ninja.View
         public static void HideEditNinjaView()
         {
             _editNinjaView?.Close();
-        }
-
-        public static InventoryView InventoryView
-        {
-            get
-            {
-                _inventoryView = new InventoryView();
-                return _inventoryView;
-            }
-        }
-
-        public static void HideInventoryView()
-        {
-            _inventoryView?.Close();
         }
 
         public static LoadScreen LoadScreen

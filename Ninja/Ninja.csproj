@@ -112,7 +112,6 @@
     <Compile Include="ViewModel\ArmourListViewModel.cs" />
     <Compile Include="ViewModel\ArmourViewModel.cs" />
     <Compile Include="ViewModel\LoadScreenViewModel.cs" />
-    <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\NinjaListViewModel.cs" />
     <Compile Include="ViewModel\NinjaViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
@@ -128,9 +127,6 @@
     </Compile>
     <Compile Include="View\EditNinjaView.xaml.cs">
       <DependentUpon>EditNinjaView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\InventoryView.xaml.cs">
-      <DependentUpon>InventoryView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ArmourListView.xaml.cs">
       <DependentUpon>ArmourListView.xaml</DependentUpon>
@@ -169,10 +165,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\EditNinjaView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\InventoryView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -31,7 +31,7 @@
         </StackPanel>
         <StackPanel Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Right" VerticalAlignment="Center" Orientation="Horizontal">
             <Label Foreground="White" FontSize="24">Geld over: </Label>
-            <Label HorizontalAlignment="Left" Foreground="White" FontSize="24" Content="{Binding SelectedNinja.Gold}"></Label>
+            <Label HorizontalAlignment="Left" Foreground="DarkGoldenrod" FontSize="24" Content="{Binding SelectedNinja.Gold}"></Label>
         </StackPanel>
         <Grid Grid.Row="1" Grid.Column="0">
             <Grid.RowDefinitions>
