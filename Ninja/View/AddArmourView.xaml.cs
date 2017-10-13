@@ -10,17 +10,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Ninja.View.UserControl
+namespace Ninja.View
 {
     /// <summary>
-    /// Interaction logic for NinjaGrid.xaml
+    /// Interaction logic for AddItemView.xaml
     /// </summary>
-    public partial class NinjaGrid : System.Windows.Controls.UserControl
+    public partial class AddArmourView : Window
     {
-        public NinjaGrid()
+        public AddArmourView()
         {
             InitializeComponent();
         }

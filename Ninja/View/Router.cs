@@ -19,6 +19,8 @@ namespace Ninja.View
         private static NinjasListView _ninjasListView;
         private static ShopView _shopView;
         private static NinjaView _ninjaView;
+        private static ArmourListView _armourListView;
+        private static AddArmourView _addArmourView;
 
         public static AddNinjaView AddNinjaView
         {
@@ -116,6 +118,34 @@ namespace Ninja.View
         public static void HideNinjaView()
         {
             _ninjaView?.Close();
+        }
+
+        public static ArmourListView ArmourListView
+        {
+            get
+            {
+                _armourListView = new ArmourListView();
+                return _armourListView;
+            }
+        }
+
+        public static void HideItemListView()
+        {
+            _armourListView?.Close();
+        }
+
+        public static AddArmourView AddArmourView
+        {
+            get
+            {
+                _addArmourView = new AddArmourView();
+                return _addArmourView;
+            }
+        }
+
+        public static void HideArmourView()
+        {
+            _addArmourView?.Close();
         }
     }
 }

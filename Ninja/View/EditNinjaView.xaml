@@ -19,7 +19,7 @@
                 <TextBlock Foreground="White" Text="Naam:" Margin="0,15,0,0"  />
                 <TextBox MaxLength="100" Text="{Binding Path=Ninja.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Padding="5px" />
 
-                <Button BorderThickness="2" Foreground="White" Content="Ninja aanpassen" Command="{Binding SaveNinjaCommand}" CommandParameter="{Binding ElementName=EditNinjaWindow}"
+                <Button BorderThickness="2" Foreground="White" Content="Ninja aanpassen" Command="{Binding SaveNinjaCommand}"
                         Width="260"  HorizontalAlignment="Left" Margin="0,15,0,0" Padding="5px" BorderBrush="Black" >
                     <Button.Background>
                         <ImageBrush ImageSource="/Ninja;component/Resources/button_bg.png"/>

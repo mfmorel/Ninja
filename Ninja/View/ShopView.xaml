@@ -61,7 +61,7 @@
                     <DropShadowEffect/>
                 </Button.Effect>
             </Button>
-            <Rectangle Grid.ColumnSpan="6" Fill="{StaticResource Bar}" HorizontalAlignment="Left" Height="4" Margin="0,55,0,-8" VerticalAlignment="Top" Width="400"/>
+            <Rectangle Grid.Column="0" Grid.ColumnSpan="6" Fill="{StaticResource Bar}" HorizontalAlignment="Left" Height="4" Margin="0,55,-1.333,-9" VerticalAlignment="Top" Width="396"/>
         </Grid>
     </Grid>
 </Window>

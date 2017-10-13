@@ -78,11 +78,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.Config" />
     <EntityDeploy Include="NinjaEntities.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>NinjaEntities.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="App.Config" />
     <None Include="NinjaEntities.edmx.diagram">
       <DependentUpon>NinjaEntities.edmx</DependentUpon>
     </None>

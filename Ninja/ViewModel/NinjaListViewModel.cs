@@ -7,14 +7,11 @@ using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
 using Ninja.Model;
 using Ninja.View;
-using Ninja.View.UserControl;
 
 namespace Ninja.ViewModel
 {
     public class NinjaListViewModel : ViewModelBase
     {
-        // private AddNinjaView _addNinjaView;
-        // private EditNinjaView _editNinjaView;
         public ObservableCollection<NinjaViewModel> NinjaList { get; set; }
         private NinjaViewModel _selectedNinja;
 
@@ -51,7 +48,20 @@ namespace Ninja.ViewModel
         public void ShowNinja()
         {
             Router.NinjaView.Show();
+            ShowShop();
+            ShowItemCrud();
         }
+
+        public void ShowShop()
+        {
+            Router.ShopView.Show();
+        }
+
+        public void ShowItemCrud()
+        {
+            Router.ArmourListView.Show();
+        }
+
         public void ShowAddNinja()
         {
             Router.AddNinjaView.Show();

@@ -21,7 +21,7 @@
                 <TextBlock Foreground="White" Text="Geld:" Margin="0,15,0,0"  />
                 <TextBox MaxLength="100" Text="{Binding Path=Ninja.Gold, Mode=TwoWay}" Padding="5px" />
 
-                <Button BorderThickness="2" Foreground="White" Content="Ninja toevoegen" Command="{Binding AddNinjaCommand}" CommandParameter="{Binding AddNinjaView}" 
+                <Button BorderThickness="2" Foreground="White" Content="Ninja toevoegen" Command="{Binding AddNinjaCommand}"
                         Width="260"  HorizontalAlignment="Left" Margin="0,15,0,0" Padding="5px" BorderBrush="Black" >
                     <Button.Background>
                         <ImageBrush ImageSource="/Ninja;component/Resources/button_bg.png"/>

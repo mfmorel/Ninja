@@ -45,6 +45,7 @@ namespace Ninja.ViewModel
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<LoadScreenViewModel>();
             SimpleIoc.Default.Register<NinjaListViewModel>();
+            SimpleIoc.Default.Register<ArmourListViewModel>();
         }
 
         public MainViewModel Main
@@ -84,6 +85,30 @@ namespace Ninja.ViewModel
             get
             {
                 return new EditNinjaViewModel(Ninjas.SelectedNinja);
+            }
+        }
+
+        public ViewNinjaViewModel ViewNinja
+        {
+            get
+            {
+                return new ViewNinjaViewModel(Ninjas.SelectedNinja);
+            }
+        }
+
+        public ArmourListViewModel Armours
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<ArmourListViewModel>();
+            }
+        }
+
+        public AddArmourViewModel AddArmour
+        {
+            get
+            {
+                return new AddArmourViewModel(Armours);
             }
         }
 

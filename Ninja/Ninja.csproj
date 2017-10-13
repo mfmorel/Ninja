@@ -94,17 +94,25 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Enum\ECategory.cs" />
     <Compile Include="Model\ArmourRepository.cs" />
     <Compile Include="Model\Interfaces\IArmour.cs" />
     <Compile Include="Model\Interfaces\INinja.cs" />
     <Compile Include="Model\NinjaRepository.cs" />
+    <Compile Include="ViewModel\AddArmourViewModel.cs" />
     <Compile Include="ViewModel\AddNinjaViewModel.cs" />
     <Compile Include="ViewModel\EditNinjaViewModel.cs" />
+    <Compile Include="ViewModel\ArmourListViewModel.cs" />
+    <Compile Include="ViewModel\ArmourViewModel.cs" />
     <Compile Include="ViewModel\LoadScreenViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\NinjaListViewModel.cs" />
     <Compile Include="ViewModel\NinjaViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
+    <Compile Include="ViewModel\ViewNinjaViewModel.cs" />
+    <Compile Include="View\AddArmourView.xaml.cs">
+      <DependentUpon>AddArmourView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\AddNinjaView.xaml.cs">
       <DependentUpon>AddNinjaView.xaml</DependentUpon>
     </Compile>
@@ -113,6 +121,9 @@
     </Compile>
     <Compile Include="View\InventoryView.xaml.cs">
       <DependentUpon>InventoryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ArmourListView.xaml.cs">
+      <DependentUpon>ArmourListView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\LoadScreen.xaml.cs">
       <DependentUpon>LoadScreen.xaml</DependentUpon>
@@ -131,9 +142,10 @@
     <Compile Include="View\ShopView.xaml.cs">
       <DependentUpon>ShopView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\UserControl\NinjaGrid.xaml.cs">
-      <DependentUpon>NinjaGrid.xaml</DependentUpon>
-    </Compile>
+    <Page Include="View\AddArmourView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\AddNinjaView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -143,6 +155,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\InventoryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ArmourListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -159,10 +175,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ShopView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\UserControl\NinjaGrid.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

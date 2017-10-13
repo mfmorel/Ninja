@@ -23,14 +23,14 @@ namespace Ninja.ViewModel
         {
             this.Ninja = selectedNinja;
             ninja = new NinjaRepository();
-            SaveNinjaCommand = new RelayCommand<EditNinjaView>(Save);
+            SaveNinjaCommand = new RelayCommand(Save);
         }
 
-        private void Save(EditNinjaView window)
+        private void Save()
         {
             ninja.UpdateNinja(Ninja.ToModel());
 
-            window.Hide();
+            Router.HideEditNinjaView();
         }
     }
 }
