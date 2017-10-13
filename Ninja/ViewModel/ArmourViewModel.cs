@@ -66,7 +66,6 @@ namespace Ninja.ViewModel
         internal Armour ToModel()
         {
             GenerateRandomProperties();
-            Picture_location = "";
             return _armour;
         }
 

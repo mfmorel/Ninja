@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Height="600" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
         DataContext="{Binding ViewNinja, Source={StaticResource Locator}}"
-        Title="{Binding SelectedNinja.Name}" >
+        Title="{Binding SelectedNinja.Name}" Icon="/Ninja;component/Resources/download_icon.png" >
     <Window.Background>
         <ImageBrush ImageSource="/Ninja;component/Resources/background.png"/>
     </Window.Background>

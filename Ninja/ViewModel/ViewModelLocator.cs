@@ -112,6 +112,14 @@ namespace Ninja.ViewModel
             }
         }
 
+        public EditArmourViewModel EditArmour
+        {
+            get
+            {
+                return new EditArmourViewModel(Armours.SelectedArmour);
+            }
+        }
+
         public static void Cleanup()
         {
             // TODO Clear the ViewModels

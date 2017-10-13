@@ -70,6 +70,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -94,13 +95,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Enum\ECategory.cs" />
+    <Compile Include="Enum\Category.cs" />
     <Compile Include="Model\ArmourRepository.cs" />
     <Compile Include="Model\Interfaces\IArmour.cs" />
     <Compile Include="Model\Interfaces\INinja.cs" />
     <Compile Include="Model\NinjaRepository.cs" />
     <Compile Include="ViewModel\AddArmourViewModel.cs" />
     <Compile Include="ViewModel\AddNinjaViewModel.cs" />
+    <Compile Include="ViewModel\EditArmourViewModel.cs" />
     <Compile Include="ViewModel\EditNinjaViewModel.cs" />
     <Compile Include="ViewModel\ArmourListViewModel.cs" />
     <Compile Include="ViewModel\ArmourViewModel.cs" />
@@ -115,6 +117,9 @@
     </Compile>
     <Compile Include="View\AddNinjaView.xaml.cs">
       <DependentUpon>AddNinjaView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EditArmourView.xaml.cs">
+      <DependentUpon>EditArmourView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\EditNinjaView.xaml.cs">
       <DependentUpon>EditNinjaView.xaml</DependentUpon>
@@ -147,6 +152,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\AddNinjaView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EditArmourView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

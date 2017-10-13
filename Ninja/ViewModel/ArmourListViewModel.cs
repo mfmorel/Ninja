@@ -53,12 +53,13 @@ namespace Ninja.ViewModel
 
         private void DeleteSelectedArmour()
         {
-            
+            _armour.DeleteArmour(SelectedArmour.ToModel().Id);
+            ArmourList.Remove(SelectedArmour);
         }
 
         private void ShowEditView()
         {
-            
+            Router.EditArmourView.Show();
         }
     }
 }

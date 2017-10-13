@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ninja.View"
         mc:Ignorable="d"
-        Title="Armour toevoegen" Height="300" Width="300"
+        Title="Armour toevoegen" Height="493.448" Width="300"
         DataContext="{Binding AddArmour, Source={StaticResource Locator}}" Icon="/Ninja;component/Resources/download_icon.png" ResizeMode="NoResize" SizeToContent="WidthAndHeight">
     <Window.Background>
         <ImageBrush ImageSource="/Ninja;component/Resources/background.png"></ImageBrush>
@@ -24,8 +24,19 @@
                 <TextBlock Foreground="White" Text="Categorie:" Margin="0,15,0,0"  />
                 <ComboBox Foreground="Black" Padding="5px" ItemsSource="{Binding Categories}" Text="{Binding Path=Armour.Category}"/>
 
+                <TextBlock Foreground="White" Text="Afbeelding:" Margin="0,15,0,0"  />
+                <Border HorizontalAlignment="Center" VerticalAlignment="Center" BorderThickness="1" BorderBrush="Black">
+                    <Image Width="100" Height="100" Source="{Binding ImageSource}"/>
+                </Border>
+                <Button BorderThickness="2" Foreground="White" Content="Afbeelding inladen" Command="{Binding AddImageCommand}" 
+                        Width="260"  HorizontalAlignment="Center" Margin="0,15,0,0" Padding="5px" BorderBrush="Black" >
+                    <Button.Background>
+                        <ImageBrush ImageSource="/Ninja;component/Resources/button_bg.png"/>
+                    </Button.Background>
+                </Button>
+
                 <Button BorderThickness="2" Foreground="White" Content="Armour toevoegen" Command="{Binding AddArmourCommand}" 
-                        Width="260"  HorizontalAlignment="Left" Margin="0,15,0,0" Padding="5px" BorderBrush="Black" >
+                        Width="260"  HorizontalAlignment="Center" Margin="0,15,0,0" Padding="5px" BorderBrush="Black" >
                     <Button.Background>
                         <ImageBrush ImageSource="/Ninja;component/Resources/button_bg.png"/>
                     </Button.Background>

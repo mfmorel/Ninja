@@ -36,6 +36,13 @@
                         </Style>
                     </DataGrid.RowStyle>
                     <DataGrid.Columns>
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image Width="50" Height="50" Source="{Binding Picture_location}"></Image>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
                         <DataGridTextColumn Header="Naam" Binding="{Binding Name}" Foreground="Black" />
                         <DataGridTextColumn Header="Prijs" Binding="{Binding Price}" Foreground="Black" />
                         <DataGridTextColumn Header="Categorie" Binding="{Binding Category}" Foreground="Black" />
