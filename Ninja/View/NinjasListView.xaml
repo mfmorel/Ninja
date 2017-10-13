@@ -44,8 +44,8 @@
                         </Style>
                     </DataGrid.RowStyle>
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Naam" Binding="{Binding Name}" Foreground="Black" />
-                        <DataGridTextColumn Header="Goud" Binding="{Binding Gold}" Foreground="Black" />
+                        <DataGridTextColumn Header="Naam" Binding="{Binding Name}" Foreground="white" FontSize="16" />
+                        <DataGridTextColumn Header="Goud" Binding="{Binding Gold}" Foreground="DarkGoldenrod" FontSize="16" />
                         <DataGridTemplateColumn>
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>

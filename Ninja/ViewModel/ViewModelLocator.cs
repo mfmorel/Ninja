@@ -41,19 +41,9 @@ namespace Ninja.ViewModel
             ////    // Create run time view services and models
             ////    SimpleIoc.Default.Register<IDataService, DataService>();
             ////}
-
-            SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<LoadScreenViewModel>();
             SimpleIoc.Default.Register<NinjaListViewModel>();
             SimpleIoc.Default.Register<ArmourListViewModel>();
-        }
-
-        public MainViewModel Main
-        {
-            get
-            {
-                return ServiceLocator.Current.GetInstance<MainViewModel>();
-            }
         }
 
         public LoadScreenViewModel LoadScreen

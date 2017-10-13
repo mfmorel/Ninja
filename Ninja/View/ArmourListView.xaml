@@ -43,12 +43,12 @@
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
-                        <DataGridTextColumn Header="Naam" Binding="{Binding Name}" Foreground="Black" />
-                        <DataGridTextColumn Header="Prijs" Binding="{Binding Price}" Foreground="Black" />
-                        <DataGridTextColumn Header="Categorie" Binding="{Binding Category}" Foreground="Black" />
-                        <DataGridTextColumn Header="Strength" Binding="{Binding Strength}" Foreground="Black" />
-                        <DataGridTextColumn Header="Intelligence" Binding="{Binding Intelligence}" Foreground="Black" />
-                        <DataGridTextColumn Header="Agility" Binding="{Binding Agility}" Foreground="Black" />
+                        <DataGridTextColumn Header="Naam" Binding="{Binding Name}" Foreground="white" FontSize="16" />
+                        <DataGridTextColumn Header="Prijs" Binding="{Binding Price}" Foreground="DarkGoldenrod" FontSize="16" />
+                        <DataGridTextColumn Header="Categorie" Binding="{Binding Category}" Foreground="white" FontSize="16" />
+                        <DataGridTextColumn Header="Strength" Binding="{Binding Strength}" Foreground="Red" FontSize="16" />
+                        <DataGridTextColumn Header="Intelligence" Binding="{Binding Intelligence}" Foreground="Blue" FontSize="16" />
+                        <DataGridTextColumn Header="Agility" Binding="{Binding Agility}" Foreground="Yellow" FontSize="16" />
                         <DataGridTemplateColumn>
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>

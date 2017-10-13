@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ninja.View"
         mc:Ignorable="d"
-        Title="EditArmourView" Height="300" Width="300"
+        Title="EditArmourView" Height="493.523" Width="300"
         DataContext="{Binding EditArmour, Source={StaticResource Locator}}" Icon="/Ninja;component/Resources/download_icon.png" ResizeMode="NoResize" SizeToContent="WidthAndHeight">
     <Window.Background>
         <ImageBrush ImageSource="/Ninja;component/Resources/background.png"></ImageBrush>

@@ -66,6 +66,7 @@ namespace Ninja.ViewModel
             bitmap.Save(imgloc, ImageFormat.Png);
 
             Armour.Picture_location = imgloc;
+            bitmap.Dispose();
         }
 
         private void AddArmour()
