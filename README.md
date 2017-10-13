@@ -46,7 +46,7 @@ naakte ninja. (En krijgt zijn geld terug).
   ? Hoeveelheid intelligence (blauw)
   ? Hoeveelheid agility (geel)
   
-De categorieën zijn: Head, Shoulders, Chest, Belt, Legs, Boots
+De categorieÃ«n zijn: Head, Shoulders, Chest, Belt, Legs, Boots
 
 # Inventory van de Ninja
 
@@ -76,22 +76,22 @@ Als je alle knockout criteria hebt behaald krijg je al het cijfer 4. De rest van
 behalen van de overige criteria. 
 
 # KO
-[ ]  Het moet mogelijk zijn om Ninjas te beheren (CRUD)
+[X]  Het moet mogelijk zijn om Ninjas te beheren (CRUD)
 
-[ ]  Het moet mogelijk zijn om Equipment te beheren (CRUD)
+[X]  Het moet mogelijk zijn om Equipment te beheren (CRUD)
 
 [ ]  Het moet mogelijk zijn om Equipment te koppelen aan een Ninja
 
-[ ]  Er staat geen code in de 'code behind' file
+[X]  Er staat geen code in de 'code behind' file
 
-[ ]  De applicatie is gebouwd in WPF
+[X]  De applicatie is gebouwd in WPF
 
-[ ]  De data in de applicatie word opgeslagen in een database
+[X]  De data in de applicatie word opgeslagen in een database
 
 # Functioneel
 [ ]  Als gebruiker wil ik dat ik validatiemeldingen zie als ik foute (of geen) gegevens invul
 
-[ ]  Als gebruiker wil ik dat er voor elk onderdeel in de applicatie een apart scherm is
+[X]  Als gebruiker wil ik dat er voor elk onderdeel in de applicatie een apart scherm is
 
 [ ]  Als gebruiker wil ik dat ik alle inventory van een ninja in 1 keer kan verkopen
 
@@ -105,18 +105,18 @@ behalen van de overige criteria.
 [ ]  Als architect wil ik dat er gebruik word gemaakt van Value converters (denk zelf na hoe)
 
 # MvvM
-[ ]  Als architect wil ik dat er gebruik is gemaakt van meerdere view models
+[X]  Als architect wil ik dat er gebruik is gemaakt van meerdere view models
 
-[ ]  Als architect wil ik dat wijzigingen in 1 window meteen zichtbaar zijn in eventuele andere windows
+[X]  Als architect wil ik dat wijzigingen in 1 window meteen zichtbaar zijn in eventuele andere windows
 
-[ ]  Als architect wil ik dat het aanmaken van View Models netjes via de View Model Locator gaat
+[X]  Als architect wil ik dat het aanmaken van View Models netjes via de View Model Locator gaat
 
 # Entity Framework
 [ ]  Als datamanager wil ik dat er een database project aanwezig is met alle tabellen
 
 [ ]  Als data architect wil ik dat de relatie tussen een Ninja en Gear een veel op veel relatie is
 
-[ ]  Als datamanager wil ik dat er een Seed script aanwezig is met initiële test data
+[ ]  Als datamanager wil ik dat er een Seed script aanwezig is met initiÃ«le test data
 
 # Technisce eisen
 [ ]  Als ontwikkelaar wil ik dat de code verder netjes OO is.
@@ -126,10 +126,10 @@ behalen van de overige criteria.
 # Extra
 [ ]  Er is een extra klasse die verantwoordelijk is voor het aanmaken van schermen (router)
 
-[ ]  Visuele weergave van de ninja en zijn gear (meer dan alleen een lijst van equipment)
+[X]  Visuele weergave van de ninja en zijn gear (meer dan alleen een lijst van equipment)
 
-[ ]  Maak de categoriën die selecteer baar zijn ook mogelijk
+[ ]  Maak de categoriÃ«n die selecteer baar zijn ook mogelijk
 
-[ ]  Equipment is uitgebreid met een afbeelding
+[X]  Equipment is uitgebreid met een afbeelding
 
 [ ]  Losse bonus punten
