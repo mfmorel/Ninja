@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:controls="clr-namespace:Ninja.UserControl"
         xmlns:local="clr-namespace:Ninja.View"
         mc:Ignorable="d"
         Height="600" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
@@ -12,7 +13,10 @@
         <ImageBrush ImageSource="/Ninja;component/Resources/background.png"/>
     </Window.Background>
     <Grid>
-        <Grid.RowDefinitions>
+        <StackPanel>
+            <controls:MenuBar></controls:MenuBar>
+            <Grid>
+                <Grid.RowDefinitions>
             <RowDefinition Height="50"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
@@ -99,5 +103,7 @@
                 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Foreground="Yellow" FontSize="18">100</Label>
             </Grid>
         </Grid>
+                </Grid>
+            </StackPanel>
     </Grid>
 </Window>

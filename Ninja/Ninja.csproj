@@ -70,8 +70,10 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\MvvmLightLibs.5.3.0.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
       <Private>True</Private>
@@ -95,10 +97,14 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Enum\ECategory.cs" />
+    <Compile Include="Helper\Commands.cs" />
     <Compile Include="Model\ArmourRepository.cs" />
     <Compile Include="Model\Interfaces\IArmour.cs" />
     <Compile Include="Model\Interfaces\INinja.cs" />
     <Compile Include="Model\NinjaRepository.cs" />
+    <Compile Include="UserControl\MenuBar.xaml.cs">
+      <DependentUpon>MenuBar.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\AddArmourViewModel.cs" />
     <Compile Include="ViewModel\AddNinjaViewModel.cs" />
     <Compile Include="ViewModel\EditNinjaViewModel.cs" />
@@ -142,6 +148,10 @@
     <Compile Include="View\ShopView.xaml.cs">
       <DependentUpon>ShopView.xaml</DependentUpon>
     </Compile>
+    <Page Include="UserControl\MenuBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\AddArmourView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

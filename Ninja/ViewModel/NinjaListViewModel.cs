@@ -5,6 +5,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
+using Ninja.Helper;
 using Ninja.Model;
 using Ninja.View;
 
@@ -12,6 +13,7 @@ namespace Ninja.ViewModel
 {
     public class NinjaListViewModel : ViewModelBase
     {
+
         public ObservableCollection<NinjaViewModel> NinjaList { get; set; }
         private NinjaViewModel _selectedNinja;
 
@@ -31,6 +33,7 @@ namespace Ninja.ViewModel
         public ICommand DeleteSelectedNinjaCommand { get; set; }
         public ICommand ShowNinjaCommand { get; set; }
         public ICommand ShowEditSelectedNinjaCommand { get; set; }
+        public ICommand ExitCommand { get; set; }
 
         public NinjaListViewModel()
         {
@@ -43,6 +46,7 @@ namespace Ninja.ViewModel
             DeleteSelectedNinjaCommand = new RelayCommand(DeleteSelectedNinja);
             ShowNinjaCommand = new RelayCommand(ShowNinja);
             ShowEditSelectedNinjaCommand = new RelayCommand(ShowEditSelectedNinja);
+            ExitCommand = new RelayCommand(Exit);
         }
 
         public void ShowNinja()
@@ -50,6 +54,7 @@ namespace Ninja.ViewModel
             Router.NinjaView.Show();
             ShowShop();
             ShowItemCrud();
+            Router.HideNinjaListView();
         }
 
         public void ShowShop()
@@ -76,6 +81,11 @@ namespace Ninja.ViewModel
         private void ShowEditSelectedNinja()
         {
             Router.EditNinjaView.Show();
+        }
+
+        private void Exit()
+        {
+            System.Windows.Application.Current.Shutdown();
         }
     }
 }
