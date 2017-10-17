@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Ninja.View"
         mc:Ignorable="d"
         Title="Shop" 
-        Height="300" 
+        Height="346" 
         Width="400"
         SizeToContent="WidthAndHeight"
         ResizeMode="NoResize" 
@@ -35,10 +35,10 @@
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="100"></ColumnDefinition>
-                <ColumnDefinition Width="150"></ColumnDefinition>
-                <ColumnDefinition Width="150"></ColumnDefinition>
+                <ColumnDefinition Width="auto" MinWidth="150"></ColumnDefinition>
+                <ColumnDefinition Width="auto" MinWidth="150"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <StackPanel Grid.Row="0" Grid.Column="0">
+            <StackPanel Grid.Row="0" Grid.Column="0" Margin="0,10">
                 <Button BorderThickness="0" Command="{Binding ChangeCategoryToHeadCommand}" Background="{StaticResource HeadButton}" x:Name="HeadButton" Content="" HorizontalAlignment="Center" VerticalAlignment="Top" Width="50" Height="50" Cursor="Hand" >
                     <Button.Effect>
                         <DropShadowEffect/>
@@ -83,12 +83,12 @@
                                 <Grid>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="50"></ColumnDefinition>
-                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
                                     </Grid.ColumnDefinitions>
 
                                     <Image Grid.Column="0" Width="50" Height="50" Source="{Binding Picture_location}"></Image>
                                     <StackPanel Grid.Column="1">
-                                        <TextBlock Text="{Binding Name}"></TextBlock>
+                                        <TextBlock Foreground="White" Text="{Binding Name}"></TextBlock>
                                         <TextBlock Text="{Binding Price}" Foreground="DarkGoldenrod" />
                                     </StackPanel>
                                 </Grid>
@@ -97,20 +97,19 @@
                     </DataGridTemplateColumn>
                 </DataGrid.Columns>
             </DataGrid>
-            <Grid Grid.Column="2">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="50"></ColumnDefinition>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-
-                <Image Grid.Column="0" Width="50" Height="50" Source="{Binding ArmourListViewModel.SelectedArmour.Picture_location}"></Image>
-                <StackPanel Grid.Column="1">
-                    <TextBlock Text="{Binding ArmourListViewModel.SelectedArmour.Name}"></TextBlock>
-                    <TextBlock Text="{Binding ArmourListViewModel.SelectedArmour.Price}" Foreground="DarkGoldenrod" />
-                    
+            <StackPanel Grid.Column="2">
+                <TextBlock HorizontalAlignment="Center" FontSize="20" Foreground="White" Text="{Binding ArmourListViewModel.SelectedArmour.Name}"></TextBlock>
+                <Image Grid.Column="2" Width="auto" Height="auto" MaxHeight="200" Source="{Binding ArmourListViewModel.SelectedArmour.Picture_location}"></Image>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock Margin="0,10,0,0" FontSize="16" Text="{Binding ArmourListViewModel.SelectedArmour.Price}" Foreground="DarkGoldenrod" />
                 </StackPanel>
-                <Button Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Center">Kopen</Button>
-            </Grid>
+            </StackPanel>
+
+            <Button Grid.Column="2" VerticalAlignment="Bottom" HorizontalAlignment="Center" BorderBrush="Black" Foreground="White" Margin="10,0,10,10" Width="130" Command="{Binding BuyCommand}">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Ninja;component/Resources/button_bg.png"/>
+                </Button.Background> Kopen
+            </Button>
         </Grid>
     </Grid>
 </Window>

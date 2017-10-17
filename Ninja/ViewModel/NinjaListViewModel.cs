@@ -52,8 +52,14 @@ namespace Ninja.ViewModel
         public void ShowNinja()
         {
             Router.NinjaView.Show();
+            ShowInventory();
             ShowShop();
             Router.HideNinjaListView();
+        }
+
+        public void ShowInventory()
+        {
+            Router.InventoryView.Show();
         }
 
         public void ShowShop()

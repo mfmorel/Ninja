@@ -27,6 +27,9 @@ namespace Ninja.ViewModel
         /// <summary>
         /// Initializes a new instance of the ViewModelLocator class.
         /// </summary>
+        private InventoryViewModel inv;
+
+        private ViewNinjaViewModel vnvm;
         public ViewModelLocator()
         {
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
@@ -82,7 +85,8 @@ namespace Ninja.ViewModel
         {
             get
             {
-                return new ViewNinjaViewModel(Ninjas.SelectedNinja);
+                vnvm = new ViewNinjaViewModel(Ninjas.SelectedNinja);
+                return vnvm;
             }
         }
 
@@ -110,11 +114,20 @@ namespace Ninja.ViewModel
             }
         }
 
+        public InventoryViewModel Inventory
+        {
+            get
+            {
+                inv = new InventoryViewModel(vnvm);
+                return inv;
+            }
+        }
+
         public ShopViewModel Shop
         {
             get
             {
-                return new ShopViewModel(Armours);
+                return new ShopViewModel(Armours, Ninjas.SelectedNinja, inv);
             }
         }
 

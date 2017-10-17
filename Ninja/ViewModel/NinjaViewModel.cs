@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Domain;
 using GalaSoft.MvvmLight;
 
 namespace Ninja.ViewModel
@@ -10,6 +11,8 @@ namespace Ninja.ViewModel
     public class NinjaViewModel : ViewModelBase
     {
         private Domain.Ninja _ninja;
+
+        public int Id => _ninja.Id;
 
         public string Name
         {

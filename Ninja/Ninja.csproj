@@ -99,7 +99,9 @@
     <Compile Include="Enum\Category.cs" />
     <Compile Include="Helper\Commands.cs" />
     <Compile Include="Model\ArmourRepository.cs" />
+    <Compile Include="Model\EquipmentRepository.cs" />
     <Compile Include="Model\Interfaces\IArmour.cs" />
+    <Compile Include="Model\Interfaces\IEquipment.cs" />
     <Compile Include="Model\Interfaces\INinja.cs" />
     <Compile Include="Model\NinjaRepository.cs" />
     <Compile Include="UserControl\MenuBar.xaml.cs">
@@ -111,7 +113,9 @@
     <Compile Include="ViewModel\EditNinjaViewModel.cs" />
     <Compile Include="ViewModel\ArmourListViewModel.cs" />
     <Compile Include="ViewModel\ArmourViewModel.cs" />
+    <Compile Include="ViewModel\InventoryViewModel.cs" />
     <Compile Include="ViewModel\LoadScreenViewModel.cs" />
+    <Compile Include="ViewModel\NinjaEquipmentViewModel.cs" />
     <Compile Include="ViewModel\NinjaListViewModel.cs" />
     <Compile Include="ViewModel\NinjaViewModel.cs" />
     <Compile Include="ViewModel\ShopViewModel.cs" />
@@ -131,6 +135,9 @@
     </Compile>
     <Compile Include="View\ArmourListView.xaml.cs">
       <DependentUpon>ArmourListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\InventoryView.xaml.cs">
+      <DependentUpon>InventoryView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\LoadScreen.xaml.cs">
       <DependentUpon>LoadScreen.xaml</DependentUpon>
@@ -170,6 +177,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ArmourListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\InventoryView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

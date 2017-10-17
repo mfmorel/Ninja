@@ -26,6 +26,20 @@ namespace Ninja.ViewModel
             }
         }
 
+        private NinjaViewModel _ninjaViewModel;
+
+        public NinjaViewModel NinjaViewModel
+        {
+            get { return _ninjaViewModel; }
+            set
+            {
+                _ninjaViewModel = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        private InventoryViewModel _inventoryViewModel;
+
         public ICommand ChangeCategoryToHeadCommand { get; set; }
         public ICommand ChangeCategoryToBeltCommand { get; set; }
         public ICommand ChangeCategoryToBootsCommand { get; set; }
@@ -34,10 +48,15 @@ namespace Ninja.ViewModel
         public ICommand ChangeCategoryToShoulderCommand { get; set; }
         public ICommand BuyCommand { get; set; }
 
+        private INinja ninja;
 
-        public ShopViewModel(ArmourListViewModel armourListViewModel)
+
+        public ShopViewModel(ArmourListViewModel armourListViewModel, NinjaViewModel selectedNinja, InventoryViewModel inventory)
         {
             this.ArmourListViewModel = armourListViewModel;
+            this.NinjaViewModel = selectedNinja;
+            _inventoryViewModel = inventory;
+            ninja = new NinjaRepository();
 
             ChangeCategoryToHeadCommand = new RelayCommand(ChangeCategoryToHead);
             ChangeCategoryToBeltCommand = new RelayCommand(ChangeCategoryToBelt);
@@ -45,7 +64,7 @@ namespace Ninja.ViewModel
             ChangeCategoryToChestCommand = new RelayCommand(ChangeCategoryToChest);
             ChangeCategoryToLegsCommand = new RelayCommand(ChangeCategoryToLegs);
             ChangeCategoryToShoulderCommand = new RelayCommand(ChangeCategoryToShoulder);
-            BuyCommand = new RelayCommand(Buy);
+            BuyCommand = new RelayCommand(Buy, CanBuy);
         }
 
         private void ChangeCategory(Enum.Category.ECategory category)
@@ -90,13 +109,36 @@ namespace Ninja.ViewModel
 
         private void Buy()
         {
-            if (ArmourListViewModel.SelectedArmour == null)
-                return;
+            try
+            {
+                var ninjaEq = new NinjaEquipmentViewModel();
+                ninjaEq.NinjaId = NinjaViewModel.Id;
+                ninjaEq.ArmourId = ArmourListViewModel.SelectedArmour.Id;
 
+                using (var context = new NinjaEntities())
+                {
+                    context.Ninja_equipment.Add(ninjaEq.ToModel());
+                    context.SaveChanges();
+                }
 
+                NinjaViewModel.Gold -= ArmourListViewModel.SelectedArmour.Price;
+
+                ninja.UpdateNinja(NinjaViewModel.ToModel());
+
+                var ninjaEqq = new NinjaEquipmentViewModel(ninjaEq.ToModel());
+
+                _inventoryViewModel.EqupmentList.Add(ninjaEqq);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
         }
 
-
-
+        private bool CanBuy()
+        {
+            return ArmourListViewModel.SelectedArmour != null &&
+                   NinjaViewModel.Gold >= ArmourListViewModel.SelectedArmour.Price;
+        }
     }
 }

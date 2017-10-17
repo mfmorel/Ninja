@@ -17,9 +17,6 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Category" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="Strength" Type="int" Nullable="false" />
-          <Property Name="Intelligence" Type="int" Nullable="false" />
-          <Property Name="Agility" Type="int" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="Price" Type="int" Nullable="false" />
           <Property Name="Picture_location" Type="varchar" MaxLength="1000" Nullable="false" />
@@ -41,9 +38,13 @@
         <EntityType Name="Ninja_equipment">
           <Key>
             <PropertyRef Name="NinjaId" />
+            <PropertyRef Name="ArmourId" />
           </Key>
           <Property Name="NinjaId" Type="int" Nullable="false" />
           <Property Name="ArmourId" Type="int" Nullable="false" />
+          <Property Name="Strength" Type="int" Nullable="false" />
+          <Property Name="Intelligence" Type="int" Nullable="false" />
+          <Property Name="Agility" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="ArmourId">
           <End Role="Armour" Type="Self.Armour" Multiplicity="1" />
@@ -59,7 +60,7 @@
         </Association>
         <Association Name="NinjaId">
           <End Role="Ninja" Type="Self.Ninja" Multiplicity="1" />
-          <End Role="Ninja_equipment" Type="Self.Ninja_equipment" Multiplicity="0..1" />
+          <End Role="Ninja_equipment" Type="Self.Ninja_equipment" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Ninja">
               <PropertyRef Name="Id" />
@@ -100,13 +101,10 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Category" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Strength" Type="Int32" Nullable="false" />
-          <Property Name="Intelligence" Type="Int32" Nullable="false" />
-          <Property Name="Agility" Type="Int32" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Price" Type="Int32" Nullable="false" />
           <Property Name="Picture_location" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Ninjas" Relationship="Self.Ninja_equipment" FromRole="Armour" ToRole="Ninja" />
+          <NavigationProperty Name="Ninja_equipment" Relationship="Self.ArmourId" FromRole="Armour" ToRole="Ninja_equipment" />
         </EntityType>
         <EntityType Name="Ninja">
           <Key>
@@ -121,19 +119,57 @@
           <Property Name="Belt" Type="Int32" />
           <Property Name="Legs" Type="Int32" />
           <Property Name="Boots" Type="Int32" />
-          <NavigationProperty Name="Armour" Relationship="Self.Ninja_equipment" FromRole="Ninja" ToRole="Armour" />
+          <NavigationProperty Name="Ninja_equipment" Relationship="Self.NinjaId" FromRole="Ninja" ToRole="Ninja_equipment" />
         </EntityType>
-        <Association Name="Ninja_equipment">
-          <End Role="Armour" Type="Self.Armour" Multiplicity="0..1" />
-          <End Role="Ninja" Type="Self.Ninja" Multiplicity="*" />
+        <EntityType Name="Ninja_equipment">
+          <Key>
+            <PropertyRef Name="NinjaId" />
+            <PropertyRef Name="ArmourId" />
+          </Key>
+          <Property Name="NinjaId" Type="Int32" Nullable="false" />
+          <Property Name="ArmourId" Type="Int32" Nullable="false" />
+          <Property Name="Strength" Type="Int32" Nullable="false" />
+          <Property Name="Intelligence" Type="Int32" Nullable="false" />
+          <Property Name="Agility" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Armour" Relationship="Self.ArmourId" FromRole="Ninja_equipment" ToRole="Armour" />
+          <NavigationProperty Name="Ninja" Relationship="Self.NinjaId" FromRole="Ninja_equipment" ToRole="Ninja" />
+        </EntityType>
+        <Association Name="ArmourId">
+          <End Role="Armour" Type="Self.Armour" Multiplicity="1" />
+          <End Role="Ninja_equipment" Type="Self.Ninja_equipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Armour">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ninja_equipment">
+              <PropertyRef Name="ArmourId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="NinjaId">
+          <End Role="Ninja" Type="Self.Ninja" Multiplicity="1" />
+          <End Role="Ninja_equipment" Type="Self.Ninja_equipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ninja">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ninja_equipment">
+              <PropertyRef Name="NinjaId" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
         <EntityContainer Name="NinjaEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="C__RefactorLog" EntityType="Self.C__RefactorLog" />
           <EntitySet Name="Armours" EntityType="Self.Armour" />
           <EntitySet Name="Ninjas" EntityType="Self.Ninja" />
-          <AssociationSet Name="Ninja_equipment" Association="Self.Ninja_equipment">
+          <EntitySet Name="Ninja_equipment" EntityType="Self.Ninja_equipment" />
+          <AssociationSet Name="ArmourId" Association="Self.ArmourId">
             <End Role="Armour" EntitySet="Armours" />
+            <End Role="Ninja_equipment" EntitySet="Ninja_equipment" />
+          </AssociationSet>
+          <AssociationSet Name="NinjaId" Association="Self.NinjaId">
             <End Role="Ninja" EntitySet="Ninjas" />
+            <End Role="Ninja_equipment" EntitySet="Ninja_equipment" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -154,9 +190,6 @@
               <MappingFragment StoreEntitySet="Armour">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Category" ColumnName="Category" />
-                <ScalarProperty Name="Strength" ColumnName="Strength" />
-                <ScalarProperty Name="Intelligence" ColumnName="Intelligence" />
-                <ScalarProperty Name="Agility" ColumnName="Agility" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="Picture_location" ColumnName="Picture_location" />
@@ -178,14 +211,17 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="Ninja_equipment" TypeName="NinjaModel.Ninja_equipment" StoreEntitySet="Ninja_equipment">
-            <EndProperty Name="Armour">
-              <ScalarProperty Name="Id" ColumnName="ArmourId" />
-            </EndProperty>
-            <EndProperty Name="Ninja">
-              <ScalarProperty Name="Id" ColumnName="NinjaId" />
-            </EndProperty>
-          </AssociationSetMapping>
+          <EntitySetMapping Name="Ninja_equipment">
+            <EntityTypeMapping TypeName="NinjaModel.Ninja_equipment">
+              <MappingFragment StoreEntitySet="Ninja_equipment">
+                <ScalarProperty Name="NinjaId" ColumnName="NinjaId" />
+                <ScalarProperty Name="ArmourId" ColumnName="ArmourId" />
+                <ScalarProperty Name="Strength" ColumnName="Strength" />
+                <ScalarProperty Name="Intelligence" ColumnName="Intelligence" />
+                <ScalarProperty Name="Agility" ColumnName="Agility" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

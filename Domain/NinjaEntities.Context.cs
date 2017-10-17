@@ -28,5 +28,6 @@ namespace Domain
         public virtual DbSet<C__RefactorLog> C__RefactorLog { get; set; }
         public virtual DbSet<Armour> Armours { get; set; }
         public virtual DbSet<Ninja> Ninjas { get; set; }
+        public virtual DbSet<Ninja_equipment> Ninja_equipment { get; set; }
     }
 }

@@ -17,19 +17,16 @@ namespace Domain
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Armour()
         {
-            this.Ninjas = new HashSet<Ninja>();
+            this.Ninja_equipment = new HashSet<Ninja_equipment>();
         }
     
         public int Id { get; set; }
         public string Category { get; set; }
-        public int Strength { get; set; }
-        public int Intelligence { get; set; }
-        public int Agility { get; set; }
         public string Name { get; set; }
         public int Price { get; set; }
         public string Picture_location { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Ninja> Ninjas { get; set; }
+        public virtual ICollection<Ninja_equipment> Ninja_equipment { get; set; }
     }
 }
