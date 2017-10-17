@@ -22,7 +22,7 @@
           <Property Name="Agility" Type="int" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="Price" Type="int" Nullable="false" />
-          <Property Name="Picture_location" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Picture_location" Type="varchar" MaxLength="1000" Nullable="false" />
         </EntityType>
         <EntityType Name="Ninja">
           <Key>
@@ -105,7 +105,7 @@
           <Property Name="Agility" Type="Int32" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Price" Type="Int32" Nullable="false" />
-          <Property Name="Picture_location" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Picture_location" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Ninjas" Relationship="Self.Ninja_equipment" FromRole="Armour" ToRole="Ninja" />
         </EntityType>
         <EntityType Name="Ninja">

@@ -55,5 +55,10 @@ namespace Ninja.Model
             }
         }
 
+        public static void AddArmour(ArmourViewModel armour)
+        {
+            
+        }
+
     }
 }

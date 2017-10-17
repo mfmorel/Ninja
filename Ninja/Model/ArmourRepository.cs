@@ -54,5 +54,13 @@ namespace Ninja.Model
                 }
             }
         }
+
+        public static List<Domain.Armour> GetArmourByCategory(Enum.Category.ECategory category)
+        {
+            using (var context = new NinjaEntities())
+            {
+                return context.Armours.Where(c => c.Category == category.ToString()).ToList();
+            }
+        }
     }
 }
