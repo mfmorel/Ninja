@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
 using Domain;
@@ -16,9 +17,10 @@ namespace Ninja.ViewModel
     public class InventoryViewModel : ViewModelBase
     {
         private ViewNinjaViewModel _selectedNinja;
-        private IEquipment _equpment;
+        private IEquipment _equipment;
         public ICommand SellSelectedArmourCommand { get; set; }
         public ICommand UseSelectedArmourCommand { get; set; }
+        public ICommand SellInventoryCommand { get; set; }
 
         public ViewNinjaViewModel SelectedNinja
         {
@@ -48,19 +50,28 @@ namespace Ninja.ViewModel
         {
             SelectedNinja = selectedNinja;
 
-            _equpment = new EquipmentRepository();
-            var equipments = _equpment.GetEquipment(SelectedNinja.SelectedNinja.Id).Select(s => new NinjaEquipmentViewModel(s));
+            _equipment = new EquipmentRepository();
+            var equipments = _equipment.GetEquipment(SelectedNinja.SelectedNinja.Id).Select(s => new NinjaEquipmentViewModel(s));
             EqupmentList = new ObservableCollection<NinjaEquipmentViewModel>(equipments);
 
             SellSelectedArmourCommand = new RelayCommand(SellSelectedArmour);
             UseSelectedArmourCommand = new RelayCommand(UseSelectedArmour, CanUse);
+            SellInventoryCommand = new RelayCommand(SellInventory);
         }
 
         private void SellSelectedArmour()
         {
             SelectedNinja.SelectedNinja.Gold += SelectedArmour.Price;
-            _equpment.DeleteEquipment(SelectedArmour.ToModel().NinjaId, SelectedArmour.ToModel().ArmourId);
+
+            _equipment.DeleteEquipment(SelectedArmour.ToModel().NinjaId, SelectedArmour.ToModel().ArmourId);
             EqupmentList.Remove(SelectedArmour);
+        }
+
+        private void SellArmour(int ninjaId, NinjaEquipmentViewModel equipment)
+        {
+            SelectedNinja.SelectedNinja.Gold += equipment.Price;
+            _equipment.DeleteEquipment(ninjaId, equipment.ArmourId);
+            EqupmentList.Remove(equipment);
         }
 
         private void UseSelectedArmour()
@@ -77,6 +88,18 @@ namespace Ninja.ViewModel
                 SelectedNinja.BootsImageSource = new BitmapImage(new Uri(SelectedArmour.Picture_location));
             else if (SelectedArmour.Category.Equals(Category.ECategory.Belt.ToString()))
                 SelectedNinja.BeltImageSource = new BitmapImage(new Uri(SelectedArmour.Picture_location));
+        }
+
+        private void SellInventory()
+        {
+            MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show(
+                "Weet je zeker dat je, je inventory wilt verkopen?", "Inventory verkopen", System.Windows.MessageBoxButton.YesNo);
+
+            if (messageBoxResult == MessageBoxResult.Yes)
+            {
+                EqupmentList.ToList().ForEach(k => SellArmour(_selectedNinja.SelectedNinja.Id, k));
+            }
+
         }
 
         private bool CanUse()

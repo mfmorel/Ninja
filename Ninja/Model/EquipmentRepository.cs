@@ -44,5 +44,13 @@ namespace Ninja.Model
                 return context.Ninja_equipment.First(n => n.NinjaId.Equals(ninjaId) && n.ArmourId.Equals(armourId));
             }
         }
+
+        public List<Ninja_equipment> GetEquipmentByNinjaId(int ninjaId)
+        {
+            using (var context = new NinjaEntities())
+            {
+                return context.Ninja_equipment.Where(n => n.NinjaId.Equals(ninjaId)).ToList();
+            }
+        }
     }
 }
