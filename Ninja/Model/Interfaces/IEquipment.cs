@@ -13,5 +13,6 @@ namespace Ninja.Model.Interfaces
         List<Ninja_equipment> GetEquipment(int ninjaId);
         Ninja_equipment GetEquipment(int ninjaId, int armourId);
         void DeleteEquipment(int ninjaId, int armourId);
+        List<Ninja_equipment> GetEquipmentByNinjaId(int ninjaId);
     }
 }

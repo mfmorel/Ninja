@@ -80,7 +80,7 @@ behalen van de overige criteria.
 
 [X]  Het moet mogelijk zijn om Equipment te beheren (CRUD)
 
-[ ]  Het moet mogelijk zijn om Equipment te koppelen aan een Ninja
+[X]  Het moet mogelijk zijn om Equipment te koppelen aan een Ninja
 
 [X]  Er staat geen code in de 'code behind' file
 
@@ -93,9 +93,9 @@ behalen van de overige criteria.
 
 [X]  Als gebruiker wil ik dat er voor elk onderdeel in de applicatie een apart scherm is
 
-[ ]  Als gebruiker wil ik dat ik alle inventory van een ninja in 1 keer kan verkopen
+[X]  Als gebruiker wil ik dat ik alle inventory van een ninja in 1 keer kan verkopen
 
-[ ]  Als gebruiker wil ik bij mijn ninja zijn totale stats (agility, strength, etc) kunnen zien. 
+[X]  Als gebruiker wil ik bij mijn ninja zijn totale stats (agility, strength, etc) kunnen zien. 
 
 # WPF
 [ ]  Als gebruiker wil ik dat buttons op de juiste manier en het juiste moment enabled of disabled zijn.

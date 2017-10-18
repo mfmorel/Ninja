@@ -17,11 +17,12 @@
                     <RowDefinition Height="30"></RowDefinition>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="30"></ColumnDefinition>
+                    <ColumnDefinition Width="100"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
-                    <ColumnDefinition Width="30"></ColumnDefinition>
+                    <ColumnDefinition Width="100"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <Label Foreground="White" Grid.Row="0" Grid.Column="1" Height="30" FontWeight="Bold" FontSize="18" HorizontalAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top">Inventory</Label>
+                <Button Command="{Binding SellInventoryCommand}" Width="100" Grid.Row="0" Grid.Column="2">Verkoop alles</Button>
             </Grid>
             <ScrollViewer Height="240">
                 <DataGrid Background="Transparent" AutoGenerateColumns="False" IsReadOnly="true" SelectedItem="{Binding SelectedArmour, Mode=TwoWay}" ItemsSource="{Binding EqupmentList}" BorderBrush="#FF979494" GridLinesVisibility="Horizontal" HorizontalGridLinesBrush="#FFF0E0E0" HeadersVisibility="Column">

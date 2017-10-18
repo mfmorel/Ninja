@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
 using Domain;
@@ -17,10 +18,10 @@ namespace Ninja.ViewModel
     public class InventoryViewModel : ViewModelBase
     {
         private ViewNinjaViewModel _selectedNinja;
-        private IEquipment _equpment;
+        private IEquipment _equipment;
         public ICommand SellSelectedArmourCommand { get; set; }
         public ICommand UseSelectedArmourCommand { get; set; }
-
+        public ICommand SellInventoryCommand { get; set; }
         private INinja _ninja;
 
         public ViewNinjaViewModel SelectedNinja
@@ -62,6 +63,7 @@ namespace Ninja.ViewModel
 
             SellSelectedArmourCommand = new RelayCommand(SellSelectedArmour);
             UseSelectedArmourCommand = new RelayCommand(UseSelectedArmour, CanUse);
+            SellInventoryCommand = new RelayCommand(SellInventory);
         }
 
         private void SellSelectedArmour()
@@ -84,6 +86,14 @@ namespace Ninja.ViewModel
             }
             _equpment.DeleteEquipment(SelectedArmour.ToModel().NinjaId, SelectedArmour.ToModel().ArmourId);
             EqupmentList.Remove(SelectedArmour);
+            _ninja.UpdateNinja(SelectedNinja.SelectedNinja.ToModel());
+        }
+
+        private void SellArmour(int ninjaId, NinjaEquipmentViewModel equipment)
+        {
+            SelectedNinja.SelectedNinja.Gold += equipment.Price;
+            _equipment.DeleteEquipment(ninjaId, equipment.ArmourId);
+            EqupmentList.Remove(equipment);
             _ninja.UpdateNinja(SelectedNinja.SelectedNinja.ToModel());
         }
 
@@ -165,6 +175,18 @@ namespace Ninja.ViewModel
         private void UpdateNinja()
         {
             _ninja.UpdateNinja(SelectedNinja.SelectedNinja.ToModel());
+        }
+
+        private void SellInventory()
+        {
+            MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show(
+                "Weet je zeker dat je, je inventory wilt verkopen?", "Inventory verkopen", System.Windows.MessageBoxButton.YesNo);
+
+            if (messageBoxResult == MessageBoxResult.Yes)
+            {
+                EqupmentList.ToList().ForEach(k => SellArmour(_selectedNinja.SelectedNinja.Id, k));
+            }
+
         }
 
         private bool CanUse()
