@@ -30,7 +30,7 @@
             <Label Foreground="White" FontSize="24" Content="{Binding SelectedNinja.Name}"></Label>
         </StackPanel>
         <StackPanel Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Right" VerticalAlignment="Center" Orientation="Horizontal">
-            <Label Foreground="White" FontSize="24">Geld over: </Label>
+            <Label Foreground="White" FontSize="24">Geld: </Label>
             <Label HorizontalAlignment="Left" Foreground="DarkGoldenrod" FontSize="24" Content="{Binding SelectedNinja.Gold}"></Label>
         </StackPanel>
         <Grid Grid.Row="1" Grid.Column="0">
@@ -46,7 +46,7 @@
                 <ColumnDefinition Width="100"></ColumnDefinition>
                 <ColumnDefinition Width="100"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Border BorderThickness="1" Grid.Row="0" Grid.Column="1" BorderBrush="Red">
+            <Border BorderThickness="0" Grid.Row="0" Grid.Column="1" BorderBrush="Red">
                 <Button BorderThickness="1" Width="100" Height="100" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <Button.Background>
                         <ImageBrush ImageSource="{Binding HeadImageSource}" Stretch="Uniform"/>
@@ -56,41 +56,41 @@
             <Border BorderThickness="0" Grid.Row="1" Grid.Column="0" BorderBrush="Red">
                 <Image Source="/Ninja;component/Resources/Dragon_scimitar_detail.png" />
             </Border>
-            <Border BorderThickness="1" Grid.Row="1" Grid.Column="1" BorderBrush="Red">
+            <Border BorderThickness="0" Grid.Row="1" Grid.Column="1" BorderBrush="Red">
                 <Button BorderThickness="1" Width="100" Height="100" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <Button.Background>
                         <ImageBrush ImageSource="{Binding ChestImageSource}" Stretch="Uniform"/>
                     </Button.Background>
                 </Button>
             </Border>
-            <Border BorderThickness="1" Grid.Row="1" Grid.Column="2" BorderBrush="Red">
+            <Border BorderThickness="0" Grid.Row="1" Grid.Column="2" BorderBrush="Red">
                 <Button BorderThickness="1" Width="100" Height="100" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <Button.Background>
                         <ImageBrush ImageSource="{Binding ShoulderImageSource}" Stretch="Uniform"/>
                     </Button.Background>
                 </Button>
                     </Border>
-            <Border BorderThickness="1" Grid.Row="2" Grid.Column="1" BorderBrush="Red">
+            <Border BorderThickness="0" Grid.Row="2" Grid.Column="1" BorderBrush="Red">
                 <Button BorderThickness="1" Width="100" Height="50" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <Button.Background>
                         <ImageBrush ImageSource="{Binding BeltImageSource}" Stretch="Uniform"/>
                     </Button.Background>
                 </Button>
                     </Border>
-            <Border BorderThickness="1" Grid.Row="3" Grid.Column="1" BorderBrush="Red">
+            <Border BorderThickness="0" Grid.Row="3" Grid.Column="1" BorderBrush="Red">
                 <Button BorderThickness="1" Width="100" Height="100" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <Button.Background>
                         <ImageBrush ImageSource="{Binding LegsImageSource}" Stretch="Uniform"/>
                     </Button.Background>
                 </Button>
                     </Border>
-            <Border BorderThickness="1" Grid.Row="4" Grid.Column="1" BorderBrush="Red">
+            <Border BorderThickness="0" Grid.Row="4" Grid.Column="1" BorderBrush="Red">
                 <Button BorderThickness="1" Width="100" Height="100" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <Button.Background>
                         <ImageBrush ImageSource="{Binding BootsImageSource}" Stretch="Uniform"/>
                     </Button.Background>
                 </Button>
-                    </Border>
+            </Border>
         </Grid>
         <Image x:Name="image" HorizontalAlignment="Center" Height="474" Grid.Row="1" VerticalAlignment="Center" Width="244" Source="/Ninja;component/Resources/Kruk.png" Grid.Column="1"/>
         <Grid Grid.Row="1" Grid.Column="2">
@@ -105,7 +105,7 @@
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
                 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" Foreground="Red" FontWeight="Bold" FontSize="20">Strength</Label>
-                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Foreground="Red" FontSize="18">100</Label>
+                        <Label HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Foreground="Red" FontSize="18" Content="{Binding TotalStrength}"></Label>
             </Grid>
             <Grid Grid.Row="1">
                 <Grid.RowDefinitions>
@@ -113,7 +113,7 @@
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
                 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" Foreground="Blue" FontWeight="Bold" FontSize="20">Intelligence</Label>
-                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Foreground="Blue" FontSize="18">100</Label>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Foreground="Blue" FontSize="18" Content="{Binding TotalIntelligence}"></Label>
             </Grid>
             <Grid Grid.Row="2">
                 <Grid.RowDefinitions>
@@ -121,7 +121,7 @@
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
                 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" Foreground="Yellow" FontWeight="Bold" FontSize="20">Agility</Label>
-                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Foreground="Yellow" FontSize="18">100</Label>
+                        <Label HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Foreground="Yellow" FontSize="18" Content="{Binding TotalAgility}"></Label>
             </Grid>
         </Grid>
                 </Grid>

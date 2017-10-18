@@ -21,6 +21,7 @@ namespace Ninja.ViewModel
         public ICommand SellSelectedArmourCommand { get; set; }
         public ICommand UseSelectedArmourCommand { get; set; }
         public ICommand SellInventoryCommand { get; set; }
+        private INinja _ninja;
 
         public ViewNinjaViewModel SelectedNinja
         {
@@ -49,6 +50,7 @@ namespace Ninja.ViewModel
         public InventoryViewModel(ViewNinjaViewModel selectedNinja)
         {
             SelectedNinja = selectedNinja;
+            _ninja = new NinjaRepository();
 
             _equipment = new EquipmentRepository();
             var equipments = _equipment.GetEquipment(SelectedNinja.SelectedNinja.Id).Select(s => new NinjaEquipmentViewModel(s));
@@ -65,6 +67,7 @@ namespace Ninja.ViewModel
 
             _equipment.DeleteEquipment(SelectedArmour.ToModel().NinjaId, SelectedArmour.ToModel().ArmourId);
             EqupmentList.Remove(SelectedArmour);
+            _ninja.UpdateNinja(SelectedNinja.SelectedNinja.ToModel());
         }
 
         private void SellArmour(int ninjaId, NinjaEquipmentViewModel equipment)
@@ -77,17 +80,81 @@ namespace Ninja.ViewModel
         private void UseSelectedArmour()
         {
             if(SelectedArmour.Category.Equals(Category.ECategory.Chest.ToString()))
-                SelectedNinja.ChestImageSource = new BitmapImage(new Uri(SelectedArmour.Picture_location));
+                UpdateChest();
             else if (SelectedArmour.Category.Equals(Category.ECategory.Head.ToString()))
-                SelectedNinja.HeadImageSource = new BitmapImage(new Uri(SelectedArmour.Picture_location));
+                UpdateHead();
             else if (SelectedArmour.Category.Equals(Category.ECategory.Shoulder.ToString()))
-                SelectedNinja.ShoulderImageSource = new BitmapImage(new Uri(SelectedArmour.Picture_location));
+                UpdateShoulder();
             else if (SelectedArmour.Category.Equals(Category.ECategory.Legs.ToString()))
-                SelectedNinja.LegsImageSource = new BitmapImage(new Uri(SelectedArmour.Picture_location));
+                UpdateLegs();
             else if (SelectedArmour.Category.Equals(Category.ECategory.Boots.ToString()))
-                SelectedNinja.BootsImageSource = new BitmapImage(new Uri(SelectedArmour.Picture_location));
+                UpdateBoots();
             else if (SelectedArmour.Category.Equals(Category.ECategory.Belt.ToString()))
-                SelectedNinja.BeltImageSource = new BitmapImage(new Uri(SelectedArmour.Picture_location));
+                UpdateBelt();
+        }
+
+        private void UpdateChest()
+        {
+            if (SelectedNinja.SelectedNinja.Head == null)
+            {
+                SelectedNinja.ChestImageSource = new BitmapImage(new Uri(SelectedArmour.Picture_location));
+                SelectedNinja.SelectedNinja.Chest = SelectedArmour.ArmourId;
+                UpdateNinja();
+                AddToEquipedList();
+            }
+        }
+
+        private void UpdateHead()
+        {
+            SelectedNinja.HeadImageSource = new BitmapImage(new Uri(SelectedArmour.Picture_location));
+            SelectedNinja.SelectedNinja.Head = SelectedArmour.ArmourId;
+            UpdateNinja();
+            AddToEquipedList();
+        }
+
+        private void UpdateShoulder()
+        {
+            SelectedNinja.ShoulderImageSource = new BitmapImage(new Uri(SelectedArmour.Picture_location));
+            SelectedNinja.SelectedNinja.Shoulder = SelectedArmour.ArmourId;
+            UpdateNinja();
+            AddToEquipedList();
+        }
+
+        private void UpdateLegs()
+        {
+            SelectedNinja.LegsImageSource = new BitmapImage(new Uri(SelectedArmour.Picture_location));
+            SelectedNinja.SelectedNinja.Legs = SelectedArmour.ArmourId;
+            UpdateNinja();
+            AddToEquipedList();
+        }
+
+        private void UpdateBoots()
+        {
+            SelectedNinja.BootsImageSource = new BitmapImage(new Uri(SelectedArmour.Picture_location));
+            SelectedNinja.SelectedNinja.Boots = SelectedArmour.ArmourId;
+            UpdateNinja();
+            AddToEquipedList();
+        }
+
+        private void UpdateBelt()
+        {
+            SelectedNinja.BeltImageSource = new BitmapImage(new Uri(SelectedArmour.Picture_location));
+            SelectedNinja.SelectedNinja.Belt = SelectedArmour.ArmourId;
+            UpdateNinja();
+            AddToEquipedList();
+        }
+
+        private void AddToEquipedList()
+        {
+            SelectedNinja.EquipedArmourList.Add(SelectedArmour);
+            SelectedNinja.TotalStrength += SelectedArmour.Strength;
+            SelectedNinja.TotalIntelligence += SelectedArmour.Intelligence;
+            SelectedNinja.TotalAgility += SelectedArmour.Agility;
+        }
+
+        private void UpdateNinja()
+        {
+            _ninja.UpdateNinja(SelectedNinja.SelectedNinja.ToModel());
         }
 
         private void SellInventory()

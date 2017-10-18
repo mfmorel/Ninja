@@ -26,6 +26,42 @@ namespace Ninja.ViewModel
             set { _ninja.Gold = value; RaisePropertyChanged("Gold"); }
         }
 
+        public int? Head
+        {
+            get { return _ninja.Head; }
+            set { _ninja.Head = value; RaisePropertyChanged("Head"); }
+        }
+
+        public int? Shoulder
+        {
+            get { return _ninja.Shoulder; }
+            set { _ninja.Shoulder = value; RaisePropertyChanged("Shoulder"); }
+        }
+
+        public int? Chest
+        {
+            get { return _ninja.Chest; }
+            set { _ninja.Chest = value; RaisePropertyChanged("Chest"); }
+        }
+
+        public int? Belt
+        {
+            get { return _ninja.Belt; }
+            set { _ninja.Belt = value; RaisePropertyChanged("Belt"); }
+        }
+
+        public int? Legs
+        {
+            get { return _ninja.Legs; }
+            set { _ninja.Legs = value; RaisePropertyChanged("Legs"); }
+        }
+
+        public int? Boots
+        {
+            get { return _ninja.Boots; }
+            set { _ninja.Boots = value; RaisePropertyChanged("Boots"); }
+        }
+
         public NinjaViewModel()
         {
             _ninja = new Domain.Ninja();
