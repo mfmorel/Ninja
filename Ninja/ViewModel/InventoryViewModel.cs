@@ -75,6 +75,7 @@ namespace Ninja.ViewModel
             SelectedNinja.SelectedNinja.Gold += equipment.Price;
             _equipment.DeleteEquipment(ninjaId, equipment.ArmourId);
             EqupmentList.Remove(equipment);
+            _ninja.UpdateNinja(SelectedNinja.SelectedNinja.ToModel());
         }
 
         private void UseSelectedArmour()
