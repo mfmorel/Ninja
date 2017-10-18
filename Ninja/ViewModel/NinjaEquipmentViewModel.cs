@@ -54,23 +54,25 @@ namespace Ninja.ViewModel
         public NinjaEquipmentViewModel()
         {
             _ninjaEquipment = new Ninja_equipment();
+            GenerateRandomProperties();
         }
 
         public NinjaEquipmentViewModel(Ninja_equipment ninjaEquipment)
         {
+            _ninjaEquipment = ninjaEquipment;
             IArmour armour = new ArmourRepository();
             ninjaEquipment.Armour = armour.GetArmour(ninjaEquipment.ArmourId);
             Name = ninjaEquipment.Armour.Name;
             Category = ninjaEquipment.Armour.Category;
             Picture_location = ninjaEquipment.Armour.Picture_location;
             Price = ninjaEquipment.Armour.Price;
-
-            _ninjaEquipment = ninjaEquipment;
+            Agility = ninjaEquipment.Agility;
+            Strength = ninjaEquipment.Strength;
+            Intelligence = ninjaEquipment.Intelligence;
         }
 
         internal Ninja_equipment ToModel()
         {
-            GenerateRandomProperties();
             return _ninjaEquipment;
         }
 

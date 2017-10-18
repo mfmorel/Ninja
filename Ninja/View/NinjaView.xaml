@@ -47,7 +47,7 @@
                 <ColumnDefinition Width="100"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Border BorderThickness="0" Grid.Row="0" Grid.Column="1" BorderBrush="Red">
-                <Button BorderThickness="1" Width="100" Height="100" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Button Command="{Binding UpdateHeadCommand}" BorderThickness="1" Width="100" Height="100" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <Button.Background>
                         <ImageBrush ImageSource="{Binding HeadImageSource}" Stretch="Uniform"/>
                     </Button.Background>
@@ -57,35 +57,35 @@
                 <Image Source="/Ninja;component/Resources/Dragon_scimitar_detail.png" />
             </Border>
             <Border BorderThickness="0" Grid.Row="1" Grid.Column="1" BorderBrush="Red">
-                <Button BorderThickness="1" Width="100" Height="100" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Button Command="{Binding UpdateChestCommand}" BorderThickness="1" Width="100" Height="100" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <Button.Background>
                         <ImageBrush ImageSource="{Binding ChestImageSource}" Stretch="Uniform"/>
                     </Button.Background>
                 </Button>
             </Border>
             <Border BorderThickness="0" Grid.Row="1" Grid.Column="2" BorderBrush="Red">
-                <Button BorderThickness="1" Width="100" Height="100" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Button  Command="{Binding UpdateShoulderCommand}" BorderThickness="1" Width="100" Height="100" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <Button.Background>
                         <ImageBrush ImageSource="{Binding ShoulderImageSource}" Stretch="Uniform"/>
                     </Button.Background>
                 </Button>
                     </Border>
             <Border BorderThickness="0" Grid.Row="2" Grid.Column="1" BorderBrush="Red">
-                <Button BorderThickness="1" Width="100" Height="50" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Button Command="{Binding UpdateBeltCommand}" BorderThickness="1" Width="100" Height="50" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <Button.Background>
                         <ImageBrush ImageSource="{Binding BeltImageSource}" Stretch="Uniform"/>
                     </Button.Background>
                 </Button>
                     </Border>
             <Border BorderThickness="0" Grid.Row="3" Grid.Column="1" BorderBrush="Red">
-                <Button BorderThickness="1" Width="100" Height="100" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Button  Command="{Binding UpdateLegsCommand}" BorderThickness="1" Width="100" Height="100" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <Button.Background>
                         <ImageBrush ImageSource="{Binding LegsImageSource}" Stretch="Uniform"/>
                     </Button.Background>
                 </Button>
                     </Border>
             <Border BorderThickness="0" Grid.Row="4" Grid.Column="1" BorderBrush="Red">
-                <Button BorderThickness="1" Width="100" Height="100" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Button  Command="{Binding UpdateBootsCommand}" BorderThickness="1" Width="100" Height="100" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <Button.Background>
                         <ImageBrush ImageSource="{Binding BootsImageSource}" Stretch="Uniform"/>
                     </Button.Background>
