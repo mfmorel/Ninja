@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Domain;
+using Ninja.Enum;
 using Ninja.ViewModel;
 
 namespace Ninja.Model
@@ -55,10 +56,9 @@ namespace Ninja.Model
             }
         }
 
-        public static void AddArmour(ArmourViewModel armour)
+        public void AddArmour(NinjaEquipmentViewModel armour, Category.ECategory category)
         {
-            
-        }
 
+        }
     }
 }

@@ -23,6 +23,7 @@ namespace Ninja.ViewModel
         }
 
         public ObservableCollection<NinjaEquipmentViewModel> EqupmentList { get; set; }
+        public ObservableCollection<NinjaEquipmentViewModel> EquipedArmourList { get; set; }
 
         private ImageSource _chestImageSource;
 
@@ -72,9 +73,32 @@ namespace Ninja.ViewModel
             set { _bootsImageSource = value; RaisePropertyChanged(); }
         }
 
+        private int _totalStrength;
+        private int _totalIntelligence;
+        private int _totalAgility;
+
+        public int TotalStrength
+        {
+            get { return _totalStrength; }
+            set { _totalStrength = value; RaisePropertyChanged(); }
+        }
+
+        public int TotalIntelligence
+        {
+            get { return _totalIntelligence; }
+            set { _totalIntelligence = value; RaisePropertyChanged(); }
+        }
+
+        public int TotalAgility
+        {
+            get { return _totalAgility; }
+            set { _totalAgility = value; RaisePropertyChanged(); }
+        }
+
         public ViewNinjaViewModel(NinjaViewModel selectedNinja)
         {
             SelectedNinja = selectedNinja;
+            EquipedArmourList = new ObservableCollection<NinjaEquipmentViewModel>();
         }
     }
 }
