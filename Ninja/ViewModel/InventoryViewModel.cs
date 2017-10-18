@@ -57,8 +57,8 @@ namespace Ninja.ViewModel
 
             _Ninja = _ninja.GetNinja(selectedNinja.SelectedNinja.Id);
 
-            _equpment = new EquipmentRepository();
-            var equipments = _equpment.GetEquipment(SelectedNinja.SelectedNinja.Id).Select(s => new NinjaEquipmentViewModel(s));
+            _equipment = new EquipmentRepository();
+            var equipments = _equipment.GetEquipment(SelectedNinja.SelectedNinja.Id).Select(s => new NinjaEquipmentViewModel(s));
             EqupmentList = new ObservableCollection<NinjaEquipmentViewModel>(equipments);
 
             SellSelectedArmourCommand = new RelayCommand(SellSelectedArmour);
@@ -84,7 +84,7 @@ namespace Ninja.ViewModel
                 else if (SelectedArmour.Category.Equals(ECategory.Boots.ToString()))
                     SelectedNinja.DeleteBoots();
             }
-            _equpment.DeleteEquipment(SelectedArmour.ToModel().NinjaId, SelectedArmour.ToModel().ArmourId);
+            _equipment.DeleteEquipment(SelectedArmour.ToModel().NinjaId, SelectedArmour.ToModel().ArmourId);
             EqupmentList.Remove(SelectedArmour);
             _ninja.UpdateNinja(SelectedNinja.SelectedNinja.ToModel());
         }
