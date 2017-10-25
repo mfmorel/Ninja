@@ -4,6 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ninja.View"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:s="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         Title="EditArmourView" Height="493.523" Width="300"
         DataContext="{Binding EditArmour, Source={StaticResource Locator}}" Icon="/Ninja;component/Resources/download_icon.png" ResizeMode="NoResize" SizeToContent="WidthAndHeight">
@@ -19,7 +21,7 @@
                 <TextBox MaxLength="100" Text="{Binding Path=Armour.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Padding="5px" />
 
                 <TextBlock Foreground="White" Text="Prijs:" Margin="0,15,0,0"  />
-                <TextBox MaxLength="100" Text="{Binding Path=Armour.Price, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Padding="5px" />
+                <xctk:MaskedTextBox MaxLength="100" Text="{Binding Path=Armour.Price, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Mask="0000000000" ValueDataType="{x:Type s:Int32}" Padding="5px"/>
 
                 <TextBlock Foreground="White" Text="Categorie:" Margin="0,15,0,0"  />
                 <ComboBox Foreground="Black" Padding="5px" ItemsSource="{Binding Categories}" Text="{Binding Path=Armour.Category}"/>

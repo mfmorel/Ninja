@@ -4,6 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Input;
 using Domain;
 using GalaSoft.MvvmLight;
@@ -47,5 +48,6 @@ namespace Ninja.ViewModel
 
             return true;
         }
+
     }
 }

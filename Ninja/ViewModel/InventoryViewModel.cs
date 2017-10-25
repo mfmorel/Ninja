@@ -101,7 +101,8 @@ namespace Ninja.ViewModel
                 SelectedNinja.DeleteBoots();
         }
 
-        private void UseSelectedArmour()
+        // Please ignore the parameter its fucking useless!!! but microsoft...
+        private void UseSelectedArmour(string uselessCat)
         {
             if(SelectedArmour.Category.Equals(ECategory.Chest.ToString()))
                 UpdateChest();
@@ -184,7 +185,8 @@ namespace Ninja.ViewModel
         private void SellInventory()
         {
             MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show(
-                "Weet je zeker dat je, je inventory wilt verkopen?", "Inventory verkopen", System.Windows.MessageBoxButton.YesNo);
+                "Weet je zeker dat je, je inventory wilt verkopen?", "Inventory verkopen",
+                System.Windows.MessageBoxButton.YesNo);
 
             if (messageBoxResult == MessageBoxResult.Yes)
             {
@@ -194,6 +196,7 @@ namespace Ninja.ViewModel
                     SellArmour(_selectedNinja.SelectedNinja.Id, k);
                 });
             }
+        }
 
         private bool CanSellInventory()
         {

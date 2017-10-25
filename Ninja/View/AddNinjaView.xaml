@@ -4,6 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ninja.View"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:s="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         Title="Ninja toevoegen" Height="300" Width="300"
         DataContext="{Binding AddNinja, Source={StaticResource Locator}}" Icon="/Ninja;component/Resources/download_icon.png" ResizeMode="NoResize" SizeToContent="WidthAndHeight">
@@ -16,10 +18,10 @@
                 <Label Foreground="White" HorizontalAlignment="Center" FontWeight="Bold" FontSize="18">Ninja toevoegen</Label>
                 
                 <TextBlock Foreground="White" Text="Naam:" Margin="0,15,0,0"  />
-                <TextBox MaxLength="100" Text="{Binding Path=Ninja.Name, Mode=TwoWay}" Padding="5px" />
+                <TextBox MaxLength="100" Text="{Binding Path=Ninja.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Padding="5px" />
 
                 <TextBlock Foreground="White" Text="Geld:" Margin="0,15,0,0"  />
-                <TextBox MaxLength="100" Text="{Binding Path=Ninja.Gold, Mode=TwoWay}" Padding="5px" />
+                <xctk:MaskedTextBox MaxLength="100" Text="{Binding Path=Ninja.Gold, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Mask="0000000000" ValueDataType="{x:Type s:Int32}" Padding="5px"/>
 
                 <Button BorderThickness="2" Foreground="White" Content="Ninja toevoegen" Command="{Binding AddNinjaCommand}"
                         Width="260"  HorizontalAlignment="Left" Margin="0,15,0,0" Padding="5px" BorderBrush="Black" >
