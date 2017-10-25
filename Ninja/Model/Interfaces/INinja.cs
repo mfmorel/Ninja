@@ -18,6 +18,6 @@ namespace Ninja.Model
 
         bool UpdateNinja(Domain.Ninja ninja);
 
-        void AddArmour(NinjaEquipmentViewModel armour, Category.ECategory category);
+        void Reset(int ninjaId);
     }
 }

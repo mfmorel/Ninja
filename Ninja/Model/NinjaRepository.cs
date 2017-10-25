@@ -6,7 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Domain;
 using Ninja.Enum;
+using Ninja.Model.Interfaces;
 using Ninja.ViewModel;
+using Ninja = Domain.Ninja;
 
 namespace Ninja.Model
 {
@@ -15,6 +17,9 @@ namespace Ninja.Model
         public void DeleteNinja(int id)
         {
             Domain.Ninja ninjatodelete = GetNinja(id);
+
+            IEquipment equipment = new EquipmentRepository();
+            equipment.DeleteEquipmentByNinja(id);
 
             using (var context = new NinjaEntities())
             {
@@ -56,9 +61,16 @@ namespace Ninja.Model
             }
         }
 
-        public void AddArmour(NinjaEquipmentViewModel armour, Category.ECategory category)
+        public void Reset(int ninjaId)
         {
-
+            Domain.Ninja ninja = GetNinja(ninjaId);
+            ninja.Head = null;
+            ninja.Belt = null;
+            ninja.Boots = null;
+            ninja.Chest = null;
+            ninja.Legs = null;
+            ninja.Shoulder = null;
+            UpdateNinja(ninja);
         }
     }
 }

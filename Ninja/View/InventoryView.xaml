@@ -22,7 +22,14 @@
                     <ColumnDefinition Width="100"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <Label Foreground="White" Grid.Row="0" Grid.Column="1" Height="30" FontWeight="Bold" FontSize="18" HorizontalAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top">Inventory</Label>
-                <Button Command="{Binding SellInventoryCommand}" Width="100" Grid.Row="0" Grid.Column="2">Verkoop alles</Button>
+                <Button Width="100" Grid.Row="0" Grid.Column="2" BorderBrush="Black" Foreground="White">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/Ninja;component/Resources/button_bg.png"/>
+                    </Button.Background> Verkoop alles
+                    <Button.Command>
+                        <Binding Path="SellInventoryCommand" />
+                    </Button.Command>
+                </Button>
             </Grid>
             <ScrollViewer Height="240">
                 <DataGrid Background="Transparent" AutoGenerateColumns="False" IsReadOnly="true" SelectedItem="{Binding SelectedArmour, Mode=TwoWay}" ItemsSource="{Binding EqupmentList}" BorderBrush="#FF979494" GridLinesVisibility="Horizontal" HorizontalGridLinesBrush="#FFF0E0E0" HeadersVisibility="Column">
@@ -48,7 +55,7 @@
                         <DataGridTemplateColumn>
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Button Padding="5" Command="{Binding DataContext.UseSelectedArmourCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}" BorderThickness="1" BorderBrush="Black" Foreground="White" Margin="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="auto" Height="30">
+                                    <Button Padding="5" Command="{Binding DataContext.UseSelectedArmourCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}" CommandParameter="{Binding Category}" BorderThickness="1" BorderBrush="Black" Foreground="White" Margin="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="auto" Height="30">
                                         <Button.Background>
                                             <ImageBrush ImageSource="/Ninja;component/Resources/button_bg.png"/>
                                         </Button.Background> Gebruiken

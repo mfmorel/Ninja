@@ -52,5 +52,15 @@ namespace Ninja.Model
                 return context.Ninja_equipment.Where(n => n.NinjaId.Equals(ninjaId)).ToList();
             }
         }
+
+        public void DeleteEquipmentByNinja(int ninjaId)
+        {
+
+            List<Ninja_equipment> equipment = GetEquipmentByNinjaId(ninjaId);
+            equipment.ForEach((e) =>
+            {
+                DeleteEquipment(ninjaId, e.ArmourId);
+            });
+        }
     }
 }

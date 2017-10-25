@@ -62,8 +62,8 @@ namespace Ninja.ViewModel
             EqupmentList = new ObservableCollection<NinjaEquipmentViewModel>(equipments);
 
             SellSelectedArmourCommand = new RelayCommand(SellSelectedArmour);
-            UseSelectedArmourCommand = new RelayCommand(UseSelectedArmour, CanUse);
-            SellInventoryCommand = new RelayCommand(SellInventory);
+            UseSelectedArmourCommand = new RelayCommand<string>(UseSelectedArmour, CanUse);
+            SellInventoryCommand = new RelayCommand(SellInventory, CanSellInventory);
         }
 
         private void SellSelectedArmour()
@@ -97,7 +97,7 @@ namespace Ninja.ViewModel
             _ninja.UpdateNinja(SelectedNinja.SelectedNinja.ToModel());
         }
 
-        private void UseSelectedArmour()
+        private void UseSelectedArmour(string cat)
         {
             if(SelectedArmour.Category.Equals(ECategory.Chest.ToString()))
                 UpdateChest();
@@ -185,12 +185,26 @@ namespace Ninja.ViewModel
             if (messageBoxResult == MessageBoxResult.Yes)
             {
                 EqupmentList.ToList().ForEach(k => SellArmour(_selectedNinja.SelectedNinja.Id, k));
+                _ninja.Reset(SelectedNinja.SelectedNinja.Id);
+                SelectedNinja.EquipedArmourList.Clear();
+                SelectedNinja.RaisePropertyChanged();
             }
 
         }
 
-        private bool CanUse()
+        private bool CanSellInventory()
         {
+            return (EqupmentList.ToList().Count > 0);
+        }
+
+        private bool CanUse(string cat)
+        {
+            if (cat == ECategory.Head.ToString() && SelectedNinja.SelectedNinja.Head != null) return false;
+            if (cat == ECategory.Belt.ToString() && SelectedNinja.SelectedNinja.Belt != null) return false;
+            if (cat == ECategory.Boots.ToString() && SelectedNinja.SelectedNinja.Boots != null) return false;
+            if (cat == ECategory.Chest.ToString() && SelectedNinja.SelectedNinja.Chest != null) return false;
+            if (cat == ECategory.Legs.ToString() && SelectedNinja.SelectedNinja.Legs != null) return false;
+            if (cat == ECategory.Shoulder.ToString() && SelectedNinja.SelectedNinja.Shoulder != null) return false;
             return true;
         }
     }

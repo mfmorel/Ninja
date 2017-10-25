@@ -61,12 +61,22 @@ namespace Ninja.ViewModel
 
         private void SaveImage(string image, string name)
         {
-            var bitmap = Bitmap.FromFile(image);
-            var imgloc = Directory.GetCurrentDirectory() + "\\Resources\\Images\\" + name + ".png";
-            bitmap.Save(imgloc, ImageFormat.Png);
+            if (image != null)
+            {
+                var bitmap = Bitmap.FromFile(image);
+                var imgloc = Directory.GetCurrentDirectory() + "\\Resources\\Images\\" + name + ".png";
+                int i = 1;
+                while (File.Exists(imgloc))
+                {
+                    imgloc = Directory.GetCurrentDirectory() + "\\Resources\\Images\\" + name + "(" + i + ")" + ".png";
+                    i++;
+                }
 
-            Armour.Picture_location = imgloc;
-            bitmap.Dispose();
+                bitmap.Save(imgloc, ImageFormat.Png);
+
+                Armour.Picture_location = imgloc;
+                bitmap.Dispose();
+            }
         }
 
         private void AddArmour()
@@ -86,7 +96,8 @@ namespace Ninja.ViewModel
 
         private bool CanAddArmour()
         {
-            return true;
+            return (!String.IsNullOrEmpty(Armour.Name) && Armour.Category != null && Armour.Price > -1 &&
+                   !String.IsNullOrEmpty(_imgloc));
         }
     }
 }
