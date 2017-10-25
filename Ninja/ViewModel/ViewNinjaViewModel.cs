@@ -247,8 +247,6 @@ namespace Ninja.ViewModel
             {
                 EquipedArmourList.Remove(eq.ArmourId);
 
-                Console.WriteLine(eq.Strength + " " + eq.Intelligence + " " + eq.Agility);
-
                 TotalStrength -= eq.Strength;
                 TotalIntelligence -= eq.Intelligence;
                 TotalAgility -= eq.Agility;

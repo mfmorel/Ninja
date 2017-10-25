@@ -69,21 +69,7 @@ namespace Ninja.ViewModel
         private void SellSelectedArmour()
         {
             SelectedNinja.SelectedNinja.Gold += SelectedArmour.Price;
-            if (SelectedNinja.EquipedArmourList.ContainsKey(SelectedArmour.ArmourId))
-            {
-                if (SelectedArmour.Category.Equals(ECategory.Head.ToString()))
-                    SelectedNinja.DeleteHead();
-                else if (SelectedArmour.Category.Equals(ECategory.Chest.ToString()))
-                    SelectedNinja.DeleteChest();
-                else if (SelectedArmour.Category.Equals(ECategory.Shoulder.ToString()))
-                    SelectedNinja.DeleteShoulder();
-                else if (SelectedArmour.Category.Equals(ECategory.Belt.ToString()))
-                    SelectedNinja.DeleteBelt();
-                else if (SelectedArmour.Category.Equals(ECategory.Legs.ToString()))
-                    SelectedNinja.DeleteLegs();
-                else if (SelectedArmour.Category.Equals(ECategory.Boots.ToString()))
-                    SelectedNinja.DeleteBoots();
-            }
+            Sell(SelectedArmour.ArmourId);
             _equipment.DeleteEquipment(SelectedArmour.ToModel().NinjaId, SelectedArmour.ToModel().ArmourId);
             EqupmentList.Remove(SelectedArmour);
             _ninja.UpdateNinja(SelectedNinja.SelectedNinja.ToModel());
@@ -92,12 +78,30 @@ namespace Ninja.ViewModel
         private void SellArmour(int ninjaId, NinjaEquipmentViewModel equipment)
         {
             SelectedNinja.SelectedNinja.Gold += equipment.Price;
+            Sell(equipment.ArmourId);
             _equipment.DeleteEquipment(ninjaId, equipment.ArmourId);
             EqupmentList.Remove(equipment);
             _ninja.UpdateNinja(SelectedNinja.SelectedNinja.ToModel());
         }
 
-        private void UseSelectedArmour(string cat)
+        private void Sell(int id)
+        {
+            if (!SelectedNinja.EquipedArmourList.ContainsKey(id)) return;
+            if (SelectedArmour.Category.Equals(ECategory.Head.ToString()))
+                SelectedNinja.DeleteHead();
+            if (SelectedArmour.Category.Equals(ECategory.Chest.ToString()))
+                SelectedNinja.DeleteChest();
+            if (SelectedArmour.Category.Equals(ECategory.Shoulder.ToString()))
+                SelectedNinja.DeleteShoulder();
+            if (SelectedArmour.Category.Equals(ECategory.Belt.ToString()))
+                SelectedNinja.DeleteBelt();
+            if (SelectedArmour.Category.Equals(ECategory.Legs.ToString()))
+                SelectedNinja.DeleteLegs();
+            if (SelectedArmour.Category.Equals(ECategory.Boots.ToString()))
+                SelectedNinja.DeleteBoots();
+        }
+
+        private void UseSelectedArmour()
         {
             if(SelectedArmour.Category.Equals(ECategory.Chest.ToString()))
                 UpdateChest();
@@ -184,13 +188,12 @@ namespace Ninja.ViewModel
 
             if (messageBoxResult == MessageBoxResult.Yes)
             {
-                EqupmentList.ToList().ForEach(k => SellArmour(_selectedNinja.SelectedNinja.Id, k));
-                _ninja.Reset(SelectedNinja.SelectedNinja.Id);
-                SelectedNinja.EquipedArmourList.Clear();
-                SelectedNinja.RaisePropertyChanged();
+                EqupmentList.ToList().ForEach(k =>
+                {
+                    SelectedArmour = k;
+                    SellArmour(_selectedNinja.SelectedNinja.Id, k);
+                });
             }
-
-        }
 
         private bool CanSellInventory()
         {
