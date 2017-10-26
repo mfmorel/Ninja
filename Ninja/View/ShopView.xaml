@@ -12,6 +12,7 @@
         ResizeMode="NoResize" 
         WindowStartupLocation="CenterScreen" 
         Icon="/Ninja;component/Resources/download_icon.png" 
+        MaxHeight="400"
         
         DataContext="{Binding Shop, Source={StaticResource Locator}}">
     <Window.Background>
@@ -99,7 +100,7 @@
             </DataGrid>
             <StackPanel Grid.Column="2">
                 <TextBlock HorizontalAlignment="Center" FontSize="20" Foreground="White" Text="{Binding ArmourListViewModel.SelectedArmour.Name}"></TextBlock>
-                <Image Grid.Column="2" Width="auto" Height="auto" MaxHeight="200" Source="{Binding ArmourListViewModel.SelectedArmour.Picture_location}"></Image>
+                <Image Grid.Column="2" Width="auto" Height="auto" MaxHeight="200" MaxWidth="200" Source="{Binding ArmourListViewModel.SelectedArmour.Picture_location}"></Image>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                     <TextBlock Margin="0,10,0,0" FontSize="16" Text="{Binding ArmourListViewModel.SelectedArmour.Price}" Foreground="DarkGoldenrod" />
                 </StackPanel>
