@@ -21,7 +21,7 @@
                 <TextBox MaxLength="100" Text="{Binding Path=Armour.Name, Mode=TwoWay}" Padding="5px" />
 
                 <TextBlock Foreground="White" Text="Prijs:" Margin="0,15,0,0"  />
-                <xctk:MaskedTextBox MaxLength="100" Text="{Binding Path=Armour.Price, Mode=TwoWay}" Mask="0000000000" ValueDataType="{x:Type s:Int32}" Padding="5px"/>
+                <xctk:IntegerUpDown Text="{Binding Path=Armour.Price, Mode=TwoWay}" Padding="5px"/>
 
                 <TextBlock Foreground="White" Text="Categorie:" Margin="0,15,0,0"  />
                 <ComboBox Foreground="Black" Padding="5px" ItemsSource="{Binding Categories}" Text="{Binding Path=Armour.Category}"/>

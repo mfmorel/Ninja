@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -64,7 +65,7 @@ namespace Ninja.ViewModel
             ninjaEquipment.Armour = armour.GetArmour(ninjaEquipment.ArmourId);
             Name = ninjaEquipment.Armour.Name;
             Category = ninjaEquipment.Armour.Category;
-            Picture_location = ninjaEquipment.Armour.Picture_location;
+            Picture_location = Directory.GetCurrentDirectory() + ninjaEquipment.Armour.Picture_location;
             Price = ninjaEquipment.Armour.Price;
             Agility = ninjaEquipment.Agility;
             Strength = ninjaEquipment.Strength;

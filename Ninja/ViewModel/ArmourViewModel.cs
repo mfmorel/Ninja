@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,7 +28,7 @@ namespace Ninja.ViewModel
 
         public string Picture_location
         {
-            get { return _armour.Picture_location; }
+            get { return Directory.GetCurrentDirectory() + _armour.Picture_location; }
             set { _armour.Picture_location = value; RaisePropertyChanged("Picture_location"); }
         }
 
