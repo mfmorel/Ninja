@@ -64,15 +64,16 @@ namespace Ninja.ViewModel
             if (image != null)
             {
                 var bitmap = Bitmap.FromFile(image);
-                var imgloc = Directory.GetCurrentDirectory() + "\\Resources\\Images\\" + name + ".png";
+                var dir = Directory.GetCurrentDirectory();
+                var imgloc = "\\Resources\\Images\\" + name + ".png";
                 int i = 1;
                 while (File.Exists(imgloc))
                 {
-                    imgloc = Directory.GetCurrentDirectory() + "\\Resources\\Images\\" + name + "(" + i + ")" + ".png";
+                    imgloc = "\\Resources\\Images\\" + name + "(" + i + ")" + ".png";
                     i++;
                 }
 
-                bitmap.Save(imgloc, ImageFormat.Png);
+                bitmap.Save(dir + imgloc, ImageFormat.Png);
 
                 Armour.Picture_location = imgloc;
                 bitmap.Dispose();

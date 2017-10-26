@@ -21,7 +21,7 @@
                 <TextBox MaxLength="100" Text="{Binding Path=Ninja.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Padding="5px" />
 
                 <TextBlock Foreground="White" Text="Geld:" Margin="0,15,0,0"  />
-                <xctk:MaskedTextBox MaxLength="100" Text="{Binding Path=Ninja.Gold, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Mask="0000000000" ValueDataType="{x:Type s:Int32}" Padding="5px"/>
+                <xctk:IntegerUpDown Text="{Binding Path=Ninja.Gold, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Padding="5px"/>
 
                 <Button BorderThickness="2" Foreground="White" Content="Ninja toevoegen" Command="{Binding AddNinjaCommand}"
                         Width="260"  HorizontalAlignment="Left" Margin="0,15,0,0" Padding="5px" BorderBrush="Black" >
